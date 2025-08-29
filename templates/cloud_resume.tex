@@ -1,0 +1,81 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{url}
+\usepackage{hyperref}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries\uppercase}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\bfseries}{}{0em}{}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Reduce spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+\begin{document}
+
+% Header
+\begin{center}
+{\LARGE\bfseries \VAR{personal_info.name}}\\
+\vspace{2pt}
+\VAR{personal_info.email} $\bullet$ \VAR{personal_info.phone} $\bullet$ \VAR{personal_info.address}\\
+\VAR{personal_info.linkedin} $\bullet$ \VAR{personal_info.github}
+\end{center}
+
+\vspace{10pt}
+
+% Summary
+\section{Professional Summary}
+\VAR{summary}
+
+% Experience
+\section{Professional Experience}
+\BLOCK{for exp in experience}
+\subsection{\VAR{exp.title} -- \VAR{exp.company}}
+\textit{\VAR{exp.location}} \hfill \VAR{exp.dates}
+\begin{itemize}[leftmargin=15pt, itemsep=1pt]
+\BLOCK{for achievement in exp.achievements}
+\item \VAR{achievement}
+\BLOCK{endfor}
+\end{itemize}
+\vspace{5pt}
+\BLOCK{endfor}
+
+% Education
+\section{Education}
+\BLOCK{for edu in education}
+\subsection{\VAR{edu.degree}}
+\VAR{edu.school}, \VAR{edu.location} \hfill \VAR{edu.dates}
+\BLOCK{if edu.gpa}
+GPA: \VAR{edu.gpa}
+\BLOCK{endif}
+\vspace{5pt}
+\BLOCK{endfor}
+
+% Skills
+\section{Technical Skills}
+\textbf{Programming Languages:} \VAR{skills.programming | join(', ')}\\
+\textbf{Frameworks \& Libraries:} \VAR{skills.frameworks | join(', ')}\\
+\textbf{Databases:} \VAR{skills.databases | join(', ')}\\
+\textbf{Tools \& Technologies:} \VAR{skills.tools | join(', ')}
+
+% Projects
+\BLOCK{if projects}
+\section{Notable Projects}
+\BLOCK{for project in projects}
+\subsection{\VAR{project.name}}
+\VAR{project.description}\\
+\textit{Technologies:} \VAR{project.technologies | join(', ')}
+\BLOCK{if project.url}
+\\URL: \url{\VAR{project.url}}
+\BLOCK{endif}
+\vspace{5pt}
+\BLOCK{endfor}
+\BLOCK{endif}
+
+\end{document}
