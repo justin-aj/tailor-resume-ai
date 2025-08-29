@@ -1,1 +1,1 @@
-# tailor-resume-ai
+Resume Tailor is an AI-powered tool that automatically customizes your resume to match a specific job description. It parses your existing resume, analyzes the job posting, and generates a professional, ATS-friendly PDF that highlights your most relevant skills, experience, and projects.
