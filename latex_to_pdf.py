@@ -168,7 +168,7 @@ if __name__ == "__main__":
     # Example usage
     try:
         # Path to your resume
-        resume_tex = r".venv\tex_files\main.tex"
+        resume_tex = r"tex_files\main.tex"
         output_pdf = "ajin_resume.pdf"
         
         print("🚀 Starting LaTeX to PDF conversion...")
