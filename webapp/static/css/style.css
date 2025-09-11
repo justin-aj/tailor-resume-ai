@@ -1,0 +1,149 @@
+/* Custom styles for Resume Tailor AI */
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border-radius: 0.5rem;
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dee2e6;
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 0.375rem;
+    border: 1px solid #ced4da;
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+.btn {
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+}
+
+/* Textarea styling */
+textarea.font-monospace {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+/* Validation results */
+.validation-success {
+    color: #198754;
+}
+
+.validation-error {
+    color: #dc3545;
+}
+
+/* Loading states */
+.btn:disabled {
+    opacity: 0.6;
+}
+
+/* Copy button positioning */
+.position-relative .btn {
+    z-index: 10;
+}
+
+/* Alert styling */
+.alert {
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.alert-success {
+    background-color: #d1e7dd;
+    color: #0a3622;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #58151c;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.alert-info {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+/* Icon styling */
+.fa-3x {
+    font-size: 2.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding: 0.5rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    textarea {
+        font-size: 0.8rem;
+    }
+}
+
+/* Progress indicator */
+.progress-indicator {
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd, #198754);
+    border-radius: 2px;
+    margin-bottom: 1rem;
+}
+
+/* Highlight important text */
+.text-highlight {
+    background-color: #fff3cd;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #ffeaa7;
+}
+
+/* Custom scrollbar for textareas */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}

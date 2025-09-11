@@ -23,7 +23,7 @@ Methodologies: Data Modeling, Data Warehousing, Data Lakes, Scrum, Agile
 BI, Modeling & Agile: Data Modeling, Data Warehousing, Data Lakes, Excel, Scrum, Agile Methodologies
 
 Experience
-Machine Learning / Data Science / Data Analytics Co-op
+Machine Learning or Data Science or Data Analytics Co-op
 AARP – Washington DC, USA | Jun 2025 – Present
 
 Developed a predictive model to recommend digital premium offers, increasing membership joins, renewals, and auto-renew enrollments with measurable lift in conversion and retention.
@@ -42,7 +42,7 @@ Integrated statistical thresholds for data/model drift detection, triggering aut
 
 Delivered insights for model selection and retraining cycles, improving model stability and reducing prediction error by 20%.
 
-Graduate Research Assistant
+AI Research Assistant or DS Research Assistant
 D'Amore-McKim School of Business, Northeastern University – Boston, USA | Jan 2025 – Apr 2025
 
 Built an NLP ETL pipeline (Airflow, RegEx, NLTK, spaCy) to preprocess 2000+ financial filings for ML and analytics workflows.

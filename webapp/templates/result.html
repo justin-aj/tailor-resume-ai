@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailored Resume - Resume Tailor AI</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-dark bg-success">
+                    <div class="container-fluid">
+                        <span class="navbar-brand mb-0 h1">
+                            <i class="fas fa-check-circle me-2"></i>AI Prompt Generated Successfully
+                        </span>
+                        <a href="{{ url_for('index') }}" class="btn btn-outline-light">
+                            <i class="fas fa-arrow-left me-2"></i>Generate Another
+                        </a>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <!-- Job Description Summary -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-briefcase me-2"></i>Job Description Summary</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="text-muted">{{ job_description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Generated Prompt -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Complete AI Prompt</h5>
+                        <div>
+                            <button type="button" class="btn btn-outline-secondary btn-sm me-2" onclick="copyToClipboard()">
+                                <i class="fas fa-copy me-1"></i>Copy Prompt
+                            </button>
+                            <button type="button" class="btn btn-success btn-sm" onclick="openAIServices()">
+                                <i class="fas fa-external-link-alt me-1"></i>Open AI Services
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <textarea id="completePrompt" class="form-control font-monospace border-0" 
+                                 rows="25" readonly style="resize: vertical;">{{ complete_prompt }}</textarea>
+                    </div>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <small class="text-muted">
+                                    <i class="fas fa-info-circle me-1"></i>
+                                    Words: <span id="wordCount">{{ word_count }}</span> | 
+                                    Characters: <span id="charCount">{{ char_count }}</span>
+                                </small>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <small class="text-success">
+                                    <i class="fas fa-check-circle me-1"></i>Ready to paste into your AI service
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Links to AI Services -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="fas fa-robot me-2"></i>AI Service Quick Links</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 mb-3">
+                                <a href="https://chat.openai.com/" target="_blank" class="btn btn-outline-primary w-100">
+                                    <i class="fas fa-brain me-2"></i>ChatGPT
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="https://claude.ai/" target="_blank" class="btn btn-outline-info w-100">
+                                    <i class="fas fa-comments me-2"></i>Claude
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="https://gemini.google.com/" target="_blank" class="btn btn-outline-warning w-100">
+                                    <i class="fas fa-star me-2"></i>Gemini
+                                </a>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <a href="https://perplexity.ai/" target="_blank" class="btn btn-outline-secondary w-100">
+                                    <i class="fas fa-search me-2"></i>Perplexity
+                                </a>
+                            </div>
+                        </div>
+                        <div class="alert alert-info mt-3">
+                            <i class="fas fa-lightbulb me-2"></i>
+                            <strong>How to use:</strong> Copy the prompt above and paste it into any AI service. The prompt contains all your inputs and detailed instructions for optimal resume tailoring.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Spacing -->
+        <div class="row">
+            <div class="col-12 mb-5"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function copyToClipboard() {
+            const textarea = document.getElementById('completePrompt');
+            textarea.select();
+            textarea.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(textarea.value);
+            
+            // Show feedback
+            const btn = event.target.closest('button');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
+            btn.classList.remove('btn-outline-secondary');
+            btn.classList.add('btn-success');
+            
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.classList.remove('btn-success');
+                btn.classList.add('btn-outline-secondary');
+            }, 2000);
+        }
+
+        function openAIServices() {
+            const services = [
+                { name: 'ChatGPT', url: 'https://chat.openai.com/' },
+                { name: 'Claude', url: 'https://claude.ai/' },
+                { name: 'Gemini', url: 'https://gemini.google.com/' },
+                { name: 'Perplexity', url: 'https://perplexity.ai/' }
+            ];
+            
+            // Show a modal with service options (simple implementation)
+            const choice = confirm("Copy the prompt first, then click OK to open ChatGPT (or Cancel to choose manually from the links below)");
+            if (choice) {
+                window.open('https://chat.openai.com/', '_blank');
+            }
+        }
+
+        // Auto-copy functionality - copy prompt when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Optional: Auto-select the prompt text for easy copying
+            const textarea = document.getElementById('completePrompt');
+            if (textarea) {
+                // Focus and select all text
+                textarea.focus();
+                textarea.setSelectionRange(0, textarea.value.length);
+            }
+        });
+
+        // Add keyboard shortcut for copying (Ctrl+C)
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'c') {
+                const textarea = document.getElementById('completePrompt');
+                if (document.activeElement === textarea) {
+                    // Let the default copy action work
+                    setTimeout(() => {
+                        showCopyNotification();
+                    }, 100);
+                }
+            }
+        });
+
+        function showCopyNotification() {
+            // Create a temporary notification
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background-color: #28a745;
+                color: white;
+                padding: 10px 20px;
+                border-radius: 5px;
+                z-index: 1000;
+                font-weight: bold;
+            `;
+            notification.innerHTML = '<i class="fas fa-check me-2"></i>Prompt copied to clipboard!';
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
