@@ -34,8 +34,15 @@ class FlaskService(win32serviceutil.ServiceFramework):
         try:
             # Get the directory where this script is located
             service_dir = os.path.dirname(os.path.abspath(__file__))
+            
+            # Fix Python executable path when running as service
             python_exe = sys.executable
-            app_path = os.path.join(service_dir, "run.py")
+            if python_exe.endswith('pythonservice.exe'):
+                # When running as service, find the actual python.exe
+                python_dir = os.path.dirname(python_exe)
+                python_exe = os.path.join(python_dir, 'python.exe')
+            
+            app_path = os.path.join(service_dir, "run_service.py")
             
             # Set environment variables for production
             env = os.environ.copy()
