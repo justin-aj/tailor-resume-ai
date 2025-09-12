@@ -84,7 +84,7 @@ class ResumeProcessor:
             connection.
 
             Easily Learnable Skills: If there are non-complex skills or technologies 
-            mentioned in the JOB DESCRIPTION that you believe can be learned quickly, 
+            mentioned in the JOB DESCRIPTION that you believe I can learn quickly, 
             you may include them in your skills section or subtly integrate them into 
             relevant bullet points, implying proficiency. Exercise discretion 
             and avoid misrepresenting core competencies.
@@ -220,5 +220,5 @@ def save_latex_resume():
         return jsonify({'success': False, 'message': f'Error: {str(e)}'})
 
 if __name__ == '__main__':
-    # Run the app
-    app.run(debug=True, host='127.0.0.1', port=5000)
+    # Run the app - configuration will be handled by run.py
+    app.run(debug=False, host='0.0.0.0', port=5000)

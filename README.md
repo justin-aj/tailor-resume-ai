@@ -1,72 +1,95 @@
 # Tailor Resume AI
 
-A professional LaTeX resume to PDF converter with clean, simple Python code. Convert your LaTeX resume to high-quality PDF using native pdflatex compilation.
+A professional AI-powered resume tailoring application with web interface and Windows service capability. Generate tailored prompts for AI services like ChatGPT, Claude, and Gemini to optimize your resume for specific job descriptions.
 
 [![Python](https://img.shields.io/badge/Python-3.6+-blue.svg)](https://python.org)
+[![Flask](https://img.shields.io/badge/Flask-Web_App-green.svg)](https://flask.palletsprojects.com/)
 [![LaTeX](https://img.shields.io/badge/LaTeX-pdflatex-green.svg)](https://www.latex-project.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ## 🎯 Overview
 
-This project provides a simple, reliable way to convert LaTeX resume files to professional PDF documents. Built with clean Python code and native LaTeX compilation for the best possible output quality.
+This project provides a web-based application for generating AI prompts to tailor your LaTeX resume to specific job descriptions. Features a clean web interface, file synchronization, and Windows service capability for 24/7 availability.
 
-## ✨ Features
+## ✨ Key Features
 
-- 🚀 **Native LaTeX Compilation**: Uses pdflatex for authentic LaTeX rendering
-- 🎨 **Professional Output**: High-quality PDFs with proper formatting
-- 🔗 **Clickable Links**: Preserves hyperlinks in the final PDF
-- 📱 **ATS-Friendly**: Machine-readable text for applicant tracking systems
-- 🛠 **Simple API**: Clean, straightforward Python interface
-- ⚡ **Fast Processing**: Efficient compilation with proper reference resolution
-- 🔧 **Error Handling**: Clear error messages and validation
-- 🌍 **Cross-Platform**: Works on Windows, macOS, and Linux
+- 🌐 **Web Application**: Clean, responsive web interface
+- 🤖 **AI Prompt Generation**: Creates complete prompts for ChatGPT, Claude, Gemini
+- � **File Synchronization**: Bidirectional sync with local resume files
+- � **Auto-Loading**: Pre-fills forms with your resume and CV data
+- �️ **Windows Service**: Run as background service, auto-start with Windows
+- 📱 **Mobile Friendly**: Responsive design works on all devices
+- ⚡ **Real-time Updates**: Load from files or save to files with one click
+- 🔧 **Easy Setup**: Simple batch file installation
 
 ## 📋 Requirements
 
 - **Python**: 3.6 or higher
-- **LaTeX Distribution**: One of the following:
-  - Windows: [MiKTeX](https://miktex.org/)
-  - macOS: [MacTeX](https://www.tug.org/mactex/)
-  - Linux: [TeX Live](https://www.tug.org/texlive/)
+- **Flask**: Web framework (automatically installed)
+- **pywin32**: Windows service support (for service installation)
+
+## 🔧 Dependencies Installation
+
+```bash
+cd webapp
+pip install -r requirements.txt
+```
+
+All required packages:
+- Flask 2.3.3
+- pywin32 (for Windows service functionality)
 
 ## 🚀 Quick Start
 
-### 1. Generate Resume (Simplest Way)
+### 🌐 Web Application (Recommended)
+
+**1. Install as Windows Service (One-Click Setup):**
 ```bash
-python generate_resume.py
+cd webapp
+# Right-click install_service.bat → "Run as administrator"
+```
+**2. Access your app:** http://localhost:5000
+
+**That's it!** Your Resume Tailor AI is now running 24/7 as a Windows service.
+
+### 💻 Manual Development Mode
+```bash
+cd webapp
+python run.py
 ```
 
-### 2. Use as Python Module
-```python
-from latex_to_pdf import LaTeXToPDF
+### 🎯 How It Works
+1. **Enter job description** in the web form
+2. **LaTeX resume loads automatically** from `data_science_resume.tex`
+3. **Additional info loads automatically** from `resume.txt`
+4. **Generate AI prompt** with one click
+5. **Copy prompt** and paste into ChatGPT, Claude, or Gemini
+6. **Get tailored resume** from your favorite AI service
 
-# Create renderer
-renderer = LaTeXToPDF()
+## 🔧 Windows Service Installation (✅ TESTED & WORKING)
 
-# Compile LaTeX file to PDF
-pdf_path = renderer.compile_latex_file("tex_files/main.tex")
-print(f"PDF generated: {pdf_path}")
-```
+**The simplest way to host on Windows:**
 
-### 3. Compile from String
-```python
-from latex_to_pdf import LaTeXToPDF
+1. **Navigate to the webapp folder**
+2. **Right-click on `install_service.bat`**
+3. **Select "Run as administrator"**
+4. **Wait for completion**
+5. **Access at http://localhost:5000**
 
-renderer = LaTeXToPDF()
+**Features:**
+- ✅ **Auto-starts with Windows**
+- ✅ **Runs in background 24/7**
+- ✅ **Network accessible** (configure firewall if needed)
+- ✅ **Automatic logging** (`flask_service.log`)
+- ✅ **Easy management** via Windows Services
 
-latex_content = r"""
-\documentclass{article}
-\usepackage[margin=1in]{geometry}
-\begin{document}
-\title{My Resume}
-\author{Your Name}
-\maketitle
-\section{Experience}
-Your experience here...
-\end{document}
-"""
-
-pdf_path = renderer.compile_from_string(latex_content, "my_resume.pdf")
+**Service Management:**
+```cmd
+cd webapp
+python flask_service.py start    # Start service
+python flask_service.py stop     # Stop service  
+python flask_service.py debug    # Check status
+python flask_service.py remove   # Uninstall
 ```
 
 ## 📁 Project Structure
@@ -74,95 +97,76 @@ pdf_path = renderer.compile_from_string(latex_content, "my_resume.pdf")
 ```
 tailor-resume-ai/
 ├── 📁 .git/                     # Git repository
-├── 📁 .venv/                    # Python virtual environment
-├── 📁 tex_files/
-│   └── 📄 main.tex              # Your LaTeX resume source
-├── 📁 __pycache__/              # Python cache (ignored)
+├── 📁 .venv/                    # Python virtual environment  
+├── 📁 webapp/                   # 🌐 Web Application
+│   ├── 📁 static/
+│   │   ├── 📁 css/
+│   │   │   └── 📄 style.css     # Application styles
+│   │   └── 📁 js/
+│   │       └── 📄 app.js        # Frontend JavaScript
+│   ├── 📁 templates/
+│   │   ├── 📄 index.html        # Main form interface
+│   │   └── 📄 result.html       # Generated prompt display
+│   ├── 📄 app.py                # 🔧 Main Flask application
+│   ├── 📄 run.py                # 🎯 Application runner
+│   ├── 📄 flask_service.py      # 🖥️ Windows service wrapper
+│   ├── � install_service.bat   # ✅ One-click service installer
+│   ├── 📄 install_service.ps1   # PowerShell installer
+│   ├── 📄 uninstall_service.bat # Service remover
+│   ├── 📄 test_app.bat          # Development tester
+│   ├── 📄 requirements.txt      # Python dependencies
+│   └── 📄 SERVICE_INSTALLATION.md # Installation guide
 ├── 📄 .gitignore                # Git ignore rules
-├── 📄 latex_to_pdf.py           # 🔧 Main converter module
-├── 📄 generate_resume.py        # 🎯 Simple resume generator script
-├── 📄 README.md                 # 📖 This documentation
-└── 📄 ajin_frank_justin_resume.pdf  # ✅ Generated PDF output
+├── 📄 data_science_resume.tex   # 📋 Your LaTeX resume
+├── 📄 resume.txt                # 📄 Additional CV information
+└── 📄 README.md                 # 📖 This documentation
 ```
 
 ## 🔧 API Reference
 
-### `LaTeXToPDF` Class
+### Web Application Routes
 
-The main class for LaTeX to PDF conversion.
+- **`/`** - Main form interface with auto-loaded resume data
+- **`/process`** - Generates AI prompt from form submission  
+- **`/update-resume-txt`** - Loads content from `resume.txt`
+- **`/update-latex-resume`** - Loads content from `data_science_resume.tex`
+- **`/save-resume-txt`** - Saves form content to `resume.txt`
+- **`/save-latex-resume`** - Saves form content to `data_science_resume.tex`
 
-#### Constructor
-```python
-LaTeXToPDF()
-```
-- Initializes the converter
-- Checks pdflatex availability
-- Raises `RuntimeError` if pdflatex is not found
+### Service Management Commands
 
-#### Methods
-
-**`compile_latex_file(tex_file_path, output_dir=None)`**
-- **Parameters**:
-  - `tex_file_path` (str): Path to the .tex file
-  - `output_dir` (str, optional): Directory to save PDF (defaults to same as .tex file)
-- **Returns**: str - Path to generated PDF
-- **Raises**: `FileNotFoundError`, `RuntimeError`
-
-**`compile_from_string(latex_content, output_path)`**
-- **Parameters**:
-  - `latex_content` (str): LaTeX document content
-  - `output_path` (str): Path where PDF should be saved
-- **Returns**: str - Path to generated PDF
-- **Raises**: `RuntimeError`
-
-### Convenience Functions
-
-**`render_resume(tex_file_path, output_path=None)`**
-- Simple function to render a resume
-- **Parameters**: Same as `compile_latex_file`
-- **Returns**: str - Path to generated PDF
-
-## 🛠 Installation & Setup
-
-### 1. Install LaTeX Distribution
-
-#### Windows (MiKTeX)
-1. Download from [miktex.org](https://miktex.org/)
-2. Run installer with default settings
-3. MiKTeX will auto-install packages as needed
-
-#### macOS (MacTeX)
-```bash
-# Using Homebrew
-brew install --cask mactex
-
-# Or download from: https://www.tug.org/mactex/
+```cmd
+cd webapp
+python flask_service.py install --startup auto  # Install service
+python flask_service.py start                   # Start service
+python flask_service.py stop                    # Stop service
+python flask_service.py debug                   # Check status  
+python flask_service.py remove                  # Uninstall service
 ```
 
-#### Linux (TeX Live)
-```bash
-# Ubuntu/Debian
-sudo apt update
-sudo apt install texlive-latex-extra texlive-fonts-recommended
+## 🛠 Development Setup
 
-# Fedora/RHEL
-sudo dnf install texlive-latex texlive-collection-latexextra
-
-# Arch Linux
-sudo pacman -S texlive-core texlive-latexextra
-```
-
-### 2. Verify Installation
-```bash
-pdflatex --version
-```
-
-### 3. Clone and Run
+### Local Development
 ```bash
 git clone https://github.com/justin-aj/tailor-resume-ai.git
-cd tailor-resume-ai
-python generate_resume.py
+cd tailor-resume-ai/webapp
+pip install -r requirements.txt
+python run.py
 ```
+
+### File Structure
+- **`data_science_resume.tex`** - Your main LaTeX resume (auto-loaded)
+- **`resume.txt`** - Additional CV information (auto-loaded)  
+- **`webapp/`** - Complete web application
+- **`webapp/static/`** - CSS, JavaScript, and assets
+- **`webapp/templates/`** - HTML templates
+
+### Features
+- ✅ **Auto-loading** of resume files into web form
+- ✅ **Bidirectional sync** - load from files or save to files
+- ✅ **AI prompt generation** for ChatGPT, Claude, Gemini
+- ✅ **Windows service** capability for 24/7 hosting
+- ✅ **Responsive design** - works on desktop and mobile
 
 ## 📝 Resume Template
 
@@ -174,29 +178,24 @@ The project includes a professional LaTeX resume template (`tex_files/main.tex`)
 - 🎨 **Formatting**: Custom commands for consistent styling
 - 📱 **Mobile-Friendly**: Proper contact information layout
 
-## 🔍 Error Handling
+## 🔍 Troubleshooting
 
-The module provides clear error messages for common issues:
-
-| Error | Cause | Solution |
+| Issue | Cause | Solution |
 |-------|-------|----------|
-| `pdflatex not found` | LaTeX not installed | Install MiKTeX, MacTeX, or TeX Live |
-| `File not found` | Invalid .tex path | Check file path and permissions |
-| `Compilation failed` | LaTeX syntax error | Review LaTeX syntax and packages |
-| `PDF not generated` | Compilation incomplete | Check LaTeX log for missing packages |
+| **Service won't install** | Not admin privileges | Run batch file as administrator |
+| **Web app not accessible** | Service not running | Check `python flask_service.py debug` |
+| **Files not loading** | File path issues | Ensure `resume.txt` and `data_science_resume.tex` exist |
+| **Save buttons not working** | File permissions | Check write permissions on files |
 
-## 📊 Output Quality
+## 📊 Application Features
 
-Generated PDFs include:
-
-- ✅ **Professional Typography**: Native LaTeX font rendering
-- ✅ **Vector Graphics**: Crisp text at any zoom level
-- ✅ **Hyperlinks**: Clickable email and web links
-- ✅ **ATS Compatibility**: Machine-readable text structure
-- ✅ **Print Quality**: High-resolution output suitable for printing
-- ✅ **Small File Size**: Optimized PDF compression
-
-**Example Output**: `ajin_frank_justin_resume.pdf` (~110KB)
+- ✅ **Professional Web Interface**: Clean, responsive design
+- ✅ **Auto-Loading Forms**: Pre-filled with your resume data  
+- ✅ **File Synchronization**: Load from/save to resume files
+- ✅ **AI Prompt Generation**: Optimized for ChatGPT, Claude, Gemini
+- ✅ **Windows Service**: 24/7 background operation
+- ✅ **Network Access**: Available on all network interfaces
+- ✅ **Service Logging**: Detailed logs in `flask_service.log`
 
 ## 🤝 Contributing
 
@@ -212,20 +211,24 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
+- Flask web framework for the application backend
+- Bootstrap for responsive web design  
+- Font Awesome for clean iconography
 - LaTeX resume template based on [Jake Gutierrez's template](https://github.com/sb2nov/resume)
-- Built with Python and native pdflatex compilation
-- Inspired by the need for simple, reliable resume generation
+- Built with Python and modern web technologies
+- Windows service implementation using pywin32
 
 ## 📞 Support
 
 If you encounter any issues:
 
-1. Check that pdflatex is properly installed
-2. Verify your LaTeX syntax is correct
-3. Review the error messages for specific guidance
-4. Open an issue on GitHub with error details
+1. Check that the Flask service is running (`python flask_service.py debug`)
+2. Verify your resume files (`resume.txt`, `data_science_resume.tex`) exist
+3. Check the service logs (`flask_service.log`) for error details
+4. Ensure you have administrator privileges for service installation
+5. Open an issue on GitHub with error details
 
 ---
 
 **Built with ❤️ by [Ajin Frank Justin](https://github.com/justin-aj)**  
-**September 2025** | **Version 1.0**
+**September 2025** | **Version 2.0** | **Web Application with Windows Service**

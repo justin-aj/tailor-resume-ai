@@ -306,3 +306,13 @@ test_results/
 output/
 generated/
 builds/
+
+# Flask Service specific files
+webapp/flask_service.log
+webapp/uploads/
+webapp/downloads/
+webapp/temp/
+
+# Windows Service files
+*.exe.log
+service_install.log
