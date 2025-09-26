@@ -57,66 +57,93 @@ class ResumeProcessor:
         """
         # Generate the complete prompt
         prompt_template = """
-            You are an expert resume editor with a focus on conciseness and impact. 
-            Your primary goal is to tailor a resume to a specific job description so 
-            effectively that a hiring manager would think: "Wow, this resume perfectly 
-            fits what we are looking for!" You must also optimize the resume for 
-            Applicant Tracking Systems (ATS).
+            📄 Prompt to Optimize Resume for ATS
 
-            Your task is to edit the resume, ensuring it remains a single page in length.
+            You are an expert resume editor specializing in ATS optimization and strategic resume tailoring. 
+            Your primary goal is to revise the resume so it is optimized for Applicant Tracking Systems (ATS) 
+            and tailored to the target job. The final output should be a refined resume in professional 
+            formatting that integrates relevant keywords and skills from the JD without making it look 
+            artificial or stuffed.
+
+            Context: I am providing two documents:
+            1. A target job description (JD) for the role I am applying to
+            2. My current resume (in LaTeX format)
+            3. Additional information about the job or the projects I have worked on
 
             Here are the inputs:
+            ---------------------------------------------------------------------------------------------------
+            JOB DESCRIPTION: 
+            
+            {job_description}
+            ---------------------------------------------------------------------------------------------------
+            OVERLEAF LATEX RESUME: 
+            
+            {latex_resume}
+            ---------------------------------------------------------------------------------------------------
+            ADDITIONAL CV/INFORMATION: 
+            
+            {additional_info}
+            ---------------------------------------------------------------------------------------------------
+            
+            🔑 INSTRUCTIONS
 
-            JOB DESCRIPTION: {job_description}
+            Keyword Optimization:
+            • Carefully analyze the job description and extract the most important hard skills, technical terms, 
+              tools, certifications, and role-specific keywords.
+            • Naturally integrate these keywords throughout the resume — especially in experience bullet points, 
+              summary, and skills section — while maintaining readability and authenticity.
+            • Place keywords in a way that ATS systems will parse correctly (e.g., within both Skills and Experience sections).
 
-            OVERLEAF LATEX RESUME: {latex_resume}
+            Role Alignment:
+            • Identify responsibilities and achievements from my current resume that most closely match the target role.
+            • Rewrite bullet points to highlight quantifiable achievements, results, and leadership impact relevant to the new job.
+            • Reorder or reframe content so the most role-aligned experiences are emphasized.
 
-            ADDITIONAL CV/INFORMATION: {additional_info}
+            ATS-Friendly Formatting:
+            • Ensure the resume avoids formatting pitfalls that cause parsing errors (e.g., no tables, text boxes, 
+              graphics, or headers/footers with critical info).
+            • Use consistent bullet point formatting and standard section headers.
+            • Maintain ATS-compatible LaTeX structure while ensuring proper formatting.
 
-            Your goal is to edit the OVERLEAF LATEX RESUME to highlight the most relevant 
-            experiences, skills, and achievements for the JOB DESCRIPTION.
+            Professional Voice & Impact:
+            • Use strong action verbs (led, launched, optimized, delivered, drove, collaborated, etc.).
+            • Focus on measurable outcomes where possible (e.g., "Increased revenue by 25%," "Improved efficiency by reducing processing time 30%").
+            • Avoid vague or generic phrases (e.g., "responsible for," "worked on").
 
-            STRATEGIC EMBELLISHMENT GUIDELINES:
-
-            Relatable Experience: If a skill or responsibility in the JOB DESCRIPTION 
-            somewhat relates to work you've done, you may phrase it in the resume to 
-            suggest a more direct familiarity or experience, subtly emphasizing the 
-            connection.
-
-            Easily Learnable Skills: If there are non-complex skills or technologies 
-            mentioned in the JOB DESCRIPTION that you believe I can learn quickly, 
-            you may include them in your skills section or subtly integrate them into 
-            relevant bullet points, implying proficiency. Exercise discretion 
-            and avoid misrepresenting core competencies.
+            Balance & Strategic Enhancement:
+            • Do not keyword-stuff. Resume should read smoothly for a human recruiter.
+            • If a skill or responsibility in the JOB DESCRIPTION somewhat relates to work you've done, you may phrase it 
+              to suggest more direct familiarity, subtly emphasizing the connection.
+            • For easily learnable skills or technologies mentioned in the JOB DESCRIPTION, you may include them in the 
+              skills section or integrate them into relevant bullet points, implying proficiency. Exercise discretion.
 
             CRITICAL CONSTRAINTS:
 
-            Hiring Manager's Impression & ATS Optimization: The edits should make the 
-            resume an undeniable match for the job description, using keywords and 
-            phrasing that resonate with both human reviewers & ATS.
+            ATS & Hiring Manager Impact: The edits should make the resume an undeniable match for the job description, 
+            using keywords and phrasing that resonate with both ATS systems and human reviewers.
 
-            Maintain 1-Page Length: The edited resume MUST NOT exceed its current 
-            1-page length.
+            Maintain 1-Page Length: The edited resume MUST NOT exceed its current 1-page length.
 
-            Concise Edits: Strategically modify, add, or remove bullet points, 
-            experiences, and projects to maximize impact and alignment with the 
-            job description. Prioritize job-description-centric content.
+            Concise Edits: Strategically modify, add, or remove bullet points, experiences, and projects to maximize 
+            impact and alignment with the job description. Prioritize job-description-centric content.
 
-            Avoid Line Expansion: Do not add new lines or sections if it causes the 
-            document to expand in length. If new information is crucial, integrate it 
-            by replacing less relevant existing text, ensuring the line count and 
-            overall visual length remain the same. Prioritize editing within existing 
-            text blocks.
+            Avoid Line Expansion: Do not add new lines or sections if it causes the document to expand in length. 
+            If new information is crucial, integrate it by replacing less relevant existing text.
 
-            STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, 
-            must not exceed 95 characters. This is a critical constraint to ensure 
-            proper formatting and prevent line breaks in the compiled PDF.
+            STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, must not exceed 95 characters. 
+            This is critical to ensure proper formatting and prevent line breaks in the compiled PDF.
 
-            LaTeX Special Characters: When using the ampersand symbol (&) in text 
-            within the LaTeX code, you must escape it with a backslash (\) 
-            (i.e., use \&). This is crucial to avoid LaTeX compilation errors.
+            LaTeX Special Characters: When using the ampersand symbol (&) in text within the LaTeX code, 
+            you must escape it with a backslash (\\) (i.e., use \\&) to avoid LaTeX compilation errors.
 
-            LaTeX Format: Provide the complete, edited LaTeX code.
+            📌 DELIVERABLE
+
+            Output the complete, revised LaTeX code that:
+            • Highlights my most relevant achievements for the job
+            • Passes ATS keyword scans effectively
+            • Appeals to recruiters and hiring managers
+            • Maintains professional formatting and readability
+            • Stays within the 1-page constraint
 
             Please provide the revised LaTeX code for the resume.
 

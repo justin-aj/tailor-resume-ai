@@ -16,7 +16,7 @@ def main():
     
     # Configuration
     host = os.environ.get('FLASK_HOST', '0.0.0.0')
-    port = int(os.environ.get('FLASK_PORT', 5000))
+    port = int(os.environ.get('FLASK_PORT', 5001))  # Changed to 5001 to avoid conflict
     debug = os.environ.get('FLASK_DEBUG', 'True').lower() == 'true'
     
     print(f"🌐 Server will start at: http://{host}:{port}")
