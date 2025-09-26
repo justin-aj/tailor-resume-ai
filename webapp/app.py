@@ -8,7 +8,7 @@ app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 def read_resume_txt():
     """Read content from resume.txt file"""
     try:
-        file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resume.txt')
+        file_path = os.path.join(os.path.dirname(__file__), 'resume.txt')
         with open(file_path, 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
@@ -19,7 +19,7 @@ def read_resume_txt():
 def read_data_science_resume_tex():
     """Read content from data_science_resume.tex file"""
     try:
-        file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data_science_resume.tex')
+        file_path = os.path.join(os.path.dirname(__file__), 'data_science_resume.tex')
         with open(file_path, 'r', encoding='utf-8') as f:
             return f.read()
     except FileNotFoundError:
@@ -30,7 +30,7 @@ def read_data_science_resume_tex():
 def write_resume_txt(content):
     """Write content to resume.txt file"""
     try:
-        file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'resume.txt')
+        file_path = os.path.join(os.path.dirname(__file__), 'resume.txt')
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
         return True
@@ -40,7 +40,7 @@ def write_resume_txt(content):
 def write_data_science_resume_tex(content):
     """Write content to data_science_resume.tex file"""
     try:
-        file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'data_science_resume.tex')
+        file_path = os.path.join(os.path.dirname(__file__), 'data_science_resume.tex')
         with open(file_path, 'w', encoding='utf-8') as f:
             f.write(content)
         return True

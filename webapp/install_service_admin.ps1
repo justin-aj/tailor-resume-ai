@@ -16,12 +16,15 @@ Write-Host "Installing Resume Tailor AI as Windows Service..." -ForegroundColor 
 # Change to script directory
 Set-Location $PSScriptRoot
 
+# Set Python executable path for virtual environment
+$PYTHON_EXE = "C:\Users\ajinf\Documents\PycharmProjects\tailor-resume-ai\.venv\Scripts\python.exe"
+
 # Clean up any existing service
 Write-Host "Cleaning up existing service..." -ForegroundColor Yellow
 try {
-    python flask_service.py stop 2>$null
+    & $PYTHON_EXE flask_service.py stop 2>$null
     Start-Sleep -Seconds 2
-    python flask_service.py remove 2>$null
+    & $PYTHON_EXE flask_service.py remove 2>$null
     Start-Sleep -Seconds 2
     
     # Force delete from Windows Service Manager
@@ -33,7 +36,7 @@ try {
 
 # Install the service
 Write-Host "Installing new service..." -ForegroundColor Yellow
-$installResult = python flask_service.py install
+$installResult = & $PYTHON_EXE flask_service.py install
 if ($LASTEXITCODE -ne 0) {
     Write-Host "ERROR: Failed to install service!" -ForegroundColor Red
     Write-Host "Exit code: $LASTEXITCODE" -ForegroundColor Red
@@ -49,11 +52,11 @@ sc.exe config FlaskAppService start= auto
 
 # Start the service
 Write-Host "Starting the service..." -ForegroundColor Yellow
-$startResult = python flask_service.py start
+$startResult = & $PYTHON_EXE flask_service.py start
 if ($LASTEXITCODE -ne 0) {
     Write-Host "WARNING: Service installed but failed to start." -ForegroundColor Yellow
     Write-Host "Checking service status..." -ForegroundColor Yellow
-    python flask_service.py debug
+    & $PYTHON_EXE flask_service.py debug
 } else {
     Write-Host "Service started successfully!" -ForegroundColor Green
 }
@@ -62,10 +65,10 @@ Write-Host ""
 Write-Host "Service installation complete!" -ForegroundColor Green
 Write-Host ""
 Write-Host "Available commands:" -ForegroundColor Cyan
-Write-Host "  Check status:  python flask_service.py debug" -ForegroundColor White
-Write-Host "  Stop service:  python flask_service.py stop" -ForegroundColor White
-Write-Host "  Start service: python flask_service.py start" -ForegroundColor White
-Write-Host "  Remove:        python flask_service.py remove" -ForegroundColor White
+Write-Host "  Check status:  `"$PYTHON_EXE`" flask_service.py debug" -ForegroundColor White
+Write-Host "  Stop service:  `"$PYTHON_EXE`" flask_service.py stop" -ForegroundColor White
+Write-Host "  Start service: `"$PYTHON_EXE`" flask_service.py start" -ForegroundColor White
+Write-Host "  Remove:        `"$PYTHON_EXE`" flask_service.py remove" -ForegroundColor White
 Write-Host ""
 Write-Host "Web app should be available at: http://localhost:5000" -ForegroundColor Green
 Write-Host ""

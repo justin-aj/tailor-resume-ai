@@ -8,13 +8,16 @@ echo.
 REM Change to the webapp directory
 cd /d "%~dp0"
 
+REM Set the Python executable path for virtual environment
+set PYTHON_EXE=C:\Users\ajinf\Documents\PycharmProjects\tailor-resume-ai\.venv\Scripts\python.exe
+
 REM Stop the service first
 echo Stopping service...
-python flask_service.py stop
+"%PYTHON_EXE%" flask_service.py stop
 
 REM Remove the service
 echo Removing service...
-python flask_service.py remove
+"%PYTHON_EXE%" flask_service.py remove
 
 echo Service uninstallation complete!
 echo.

@@ -1,3 +1,7 @@
+# pyright: reportUnknownMemberType=false
+
+from typing import Any
+
 import win32serviceutil
 import win32service
 import win32event
@@ -12,10 +16,11 @@ class FlaskService(win32serviceutil.ServiceFramework):
     _svc_display_name_ = "Flask App Service"  # Name in Services.msc
     _svc_description_ = "Runs a Flask app as a Windows service"
 
-    def __init__(self, args):
+    def __init__(self, args: tuple[Any, ...]):
         win32serviceutil.ServiceFramework.__init__(self, args)
         self.hWaitStop = win32event.CreateEvent(None, 0, 0, None)
         socket.setdefaulttimeout(60)
+        self.process = None
 
     def SvcStop(self):
         self.ReportServiceStatus(win32service.SERVICE_STOP_PENDING)
@@ -25,10 +30,14 @@ class FlaskService(win32serviceutil.ServiceFramework):
         win32event.SetEvent(self.hWaitStop)
 
     def SvcDoRun(self):
+        self.ReportServiceStatus(win32service.SERVICE_START_PENDING)
         servicemanager.LogMsg(servicemanager.EVENTLOG_INFORMATION_TYPE,
                               servicemanager.PYS_SERVICE_STARTED,
                               (self._svc_name_, ''))
-        self.start_flask()
+        try:
+            self.start_flask()
+        finally:
+            self.ReportServiceStatus(win32service.SERVICE_STOPPED)
 
     def start_flask(self):
         try:
@@ -71,6 +80,8 @@ class FlaskService(win32serviceutil.ServiceFramework):
                     env=env
                 )
 
+            self.ReportServiceStatus(win32service.SERVICE_RUNNING)
+
             # Wait for the stop event
             win32event.WaitForSingleObject(self.hWaitStop, win32event.INFINITE)
             
@@ -83,6 +94,7 @@ class FlaskService(win32serviceutil.ServiceFramework):
             servicemanager.LogMsg(servicemanager.EVENTLOG_ERROR_TYPE,
                                   servicemanager.PYS_SERVICE_STOPPED,
                                   (self._svc_name_, f'Error: {str(e)}'))
+            self.ReportServiceStatus(win32service.SERVICE_STOPPED)
 
 
 if __name__ == '__main__':
