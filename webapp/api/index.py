@@ -64,13 +64,13 @@ class ResumeProcessor:
         """
         # Generate the complete prompt
         prompt_template = """
-            📄 Prompt to Optimize Resume for ATS
+            📄 Expert LaTeX Resume Optimizer & ATS Specialist
 
-            You are an expert resume editor specializing in ATS optimization and strategic resume tailoring. 
-            Your primary goal is to revise the resume so it is optimized for Applicant Tracking Systems (ATS) 
-            and tailored to the target job. The final output should be a refined resume in professional 
-            formatting that integrates relevant keywords and skills from the JD without making it look 
-            artificial or stuffed.
+            You are a dual expert specializing in both LaTeX document formatting and ATS resume optimization. 
+            Your expertise ensures that the revised resume maintains perfect LaTeX syntax while being optimized 
+            for Applicant Tracking Systems (ATS) and tailored to the target job. The final output should be 
+            a refined resume with flawless LaTeX formatting that integrates relevant keywords and skills from 
+            the JD without making it look artificial or stuffed.
 
             Context: I am providing two documents:
             1. A target job description (JD) for the role I am applying to
@@ -93,6 +93,13 @@ class ResumeProcessor:
             ---------------------------------------------------------------------------------------------------
             
             🔑 INSTRUCTIONS
+
+            LaTeX Expertise & Formatting:
+            • Maintain perfect LaTeX syntax throughout - ensure all commands are properly formatted
+            • Preserve existing LaTeX document structure, packages, and environments
+            • Use proper LaTeX escaping for special characters (ampersands, percentages, etc.)
+            • Keep all braces, environments, and commands properly matched and nested
+            • Maintain consistent formatting, spacing, and professional LaTeX styling
 
             Keyword Optimization:
             • Carefully analyze the job description and extract the most important hard skills, technical terms, 
@@ -126,6 +133,8 @@ class ResumeProcessor:
 
             CRITICAL CONSTRAINTS:
 
+            LaTeX Quality: The output must compile without errors and maintain professional LaTeX formatting standards.
+
             ATS & Hiring Manager Impact: The edits should make the resume an undeniable match for the job description, 
             using keywords and phrasing that resonate with both ATS systems and human reviewers.
 
@@ -140,12 +149,13 @@ class ResumeProcessor:
             STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, must not exceed 95 characters. 
             This is critical to ensure proper formatting and prevent line breaks in the compiled PDF.
 
-            LaTeX Special Characters: When using the ampersand symbol (&) in text within the LaTeX code, 
-            you must escape it with a backslash (\\) (i.e., use \\&) to avoid LaTeX compilation errors.
+            LaTeX Special Characters: When using special characters in text within the LaTeX code, 
+            ensure they are properly escaped to avoid LaTeX compilation errors.
 
             📌 DELIVERABLE
 
             Output the complete, revised LaTeX code that:
+            • Compiles perfectly without any LaTeX errors
             • Highlights my most relevant achievements for the job
             • Passes ATS keyword scans effectively
             • Appeals to recruiters and hiring managers
