@@ -97,9 +97,11 @@ class ResumeProcessor:
             LaTeX Expertise & Formatting:
             • Maintain perfect LaTeX syntax throughout - ensure all commands are properly formatted
             • Preserve existing LaTeX document structure, packages, and environments
+            • DO NOT change the existing LaTeX formatting style, template, or layout structure
+            • Keep the current formatting patterns, spacing, fonts, and visual design intact
             • Use proper LaTeX escaping for special characters (ampersands, percentages, etc.)
             • Keep all braces, environments, and commands properly matched and nested
-            • Maintain consistent formatting, spacing, and professional LaTeX styling
+            • Maintain consistent formatting, spacing, and professional LaTeX styling as currently used
 
             Keyword Optimization:
             • Carefully analyze the job description and extract the most important hard skills, technical terms, 
@@ -133,6 +135,9 @@ class ResumeProcessor:
 
             CRITICAL CONSTRAINTS:
 
+            LaTeX Format Preservation: DO NOT modify the existing LaTeX template, formatting style, or visual layout. 
+            Only update the CONTENT within the existing structure and formatting patterns.
+
             LaTeX Quality: The output must compile without errors and maintain professional LaTeX formatting standards.
 
             ATS & Hiring Manager Impact: The edits should make the resume an undeniable match for the job description, 
@@ -146,7 +151,7 @@ class ResumeProcessor:
             Avoid Line Expansion: Do not add new lines or sections if it causes the document to expand in length. 
             If new information is crucial, integrate it by replacing less relevant existing text.
 
-            STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, must not exceed 95 characters. 
+            STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, must not exceed 100 characters. 
             This is critical to ensure proper formatting and prevent line breaks in the compiled PDF.
 
             LaTeX Special Characters: When using special characters in text within the LaTeX code, 
