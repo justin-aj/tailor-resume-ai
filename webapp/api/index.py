@@ -72,7 +72,7 @@ class ResumeProcessor:
             a refined resume with flawless LaTeX formatting that integrates relevant keywords and skills from 
             the JD without making it look artificial or stuffed.
 
-            Context: I am providing two documents:
+            Context: I am providing three documents:
             1. A target job description (JD) for the role I am applying to
             2. My current resume (in LaTeX format)
             3. Additional information about the job or the projects I have worked on
