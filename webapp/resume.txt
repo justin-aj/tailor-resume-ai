@@ -94,6 +94,43 @@ ML Model Performance Monitoring System | databricks, pyspark | Jun 2025 – Aug 
 • Developed automated pyspark pipeline to process 3B+ scored records for realtime performance, drift analysis.
 • Identified, flagged degrading models enabling timely retraining, increasing campaign conversion rate by 15%.
 
+Cold Email / Job Application Automation | Python, Dagster, AI, Web Scraping | May 2025 – June 2025
+ GitHub: https://github.com/justin-aj/ces-automation
+ • Engineered a Dagster-orchestrated ETL pipeline to automate end-to-end job application processes: job scraping, AI-driven email generation, Gmail draft creation, and status tracking.
+ • Developed a dynamic job scraper using Crawl4AI and BeautifulSoup with a headless browser to reliably extract job title, description, company, location, and requirements from diverse job boards.
+ • Integrated the Google Gmail API (OAuth2) to programmatically generate personalized email drafts with proper MIME formatting, attachments, and API compliance.
+ • Leveraged Gemini AI for context-aware email content generation using candidate resumes and job descriptions.
+ • Built a logging, monitoring, and reporting module (Excel/JSON) to track pipeline execution, email draft generation, and application status.
+ • Designed the system to be modular and scalable, enabling easy integration of new job boards, AI models, and automation workflows.
+
+PR Summarizer | Python, GCP, AI, Gmail API, Pub/Sub | May 2025 – June 2025
+ GitHub: https://github.com/justin-aj/PRSummarizer.git
+ • Architected a cloud-native, event-driven pipeline to identify, extract, and summarize press releases from Gmail messages in real time.
+ • Utilized Gmail API with GCP Pub/Sub for asynchronous ingestion of emails, ensuring high-throughput, reliable processing.
+ • Implemented adaptive web scraping using Crawl4AI and Playwright to fetch external press release content with dynamic page handling.
+ • Designed and deployed AI-driven classification and summarization using Gemini AI to detect press releases, parse timestamps, and produce structured, human-readable summaries.
+ • Persisted structured output to Google Cloud Storage (JSON), with comprehensive logging, error handling, and retry mechanisms.
+ • Built the system to be extensible, supporting multi-source ingestion and future AI model integration.
+
+Product Usage Time Series Forecasting | Python, ARIMA, XGBoost, Time Series Modeling | May 2025 – June 2025
+ GitHub: https://github.com/justin-aj/ProductUsage-TimeSeriesForecasting
+ • Developed a modular time series forecasting pipeline predicting weekly product usage across multiple SKUs and entities using ARIMA, Linear Regression, Random Forest, and XGBoost.
+ • Engineered temporal features including lags, rolling statistics, seasonal indicators, and holiday effects to enhance model performance.
+ • Applied robust preprocessing: handled missing values, outliers, normalization, and entity-specific transformations.
+ • Conducted model evaluation and selection using MAE, RMSE, and MAPE per entity to ensure high-accuracy forecasts.
+ • Built visualization dashboards for historical and forecast trends to guide inventory planning and demand forecasting.
+ • Structured the pipeline for scalability and reusability, with modular components for feature engineering, modeling, prediction, and reporting.
+
+ELT Pipeline for TCGA DNA Methylation & Clinical Data | Apache Airflow, Google BigQuery, dbt, DVC, GCS | May 2025 – June 2025
+ GitHub: https://github.com/justin-aj/ELTBigQuery.git
+ • Engineered a full ELT workflow to extract, transform, and load DNA methylation and clinical datasets from the GDC Data Portal into Google BigQuery for downstream ML workflows.
+ • Automated ETL processes using Apache Airflow DAGs, with task dependencies, retries, and SLA monitoring for reliable execution.
+ • Employed dbt for modular SQL-based transformations, producing curated, analytics-ready datasets from raw inputs while maintaining version control.
+ • Utilized DVC for data versioning and Google Cloud Storage (GCS) for raw data storage, ensuring reproducibility and dataset integrity.
+ • Implemented robust logging, monitoring, and error handling, enabling pipeline diagnostics and auditability.
+ • Designed for scalability and extensibility, facilitating integration with predictive modeling pipelines and downstream analytics.
+
+
 AskNEU – Retrieval-Augmented Generation System | LangChain, LangGraph, Docker, Pinecone, GCP, Cohere | [link] | Jan 2025 – Apr 2025
 
 Architected RAG system with Cohere reranking and Complex Retrieval Framework (query decomposition, context unification) using GPT-4.1 and Gemini APIs.
