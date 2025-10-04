@@ -164,7 +164,7 @@ Developed an ML system for food product categorization on USDA data, with featur
 entries, optimized via TF-IDF vectorization, PCA dimensionality reduction, and A/B testing for statistical validation.
 • Derived statistical insights for nutrition, inventory, recommendations, leveraging hypothesis testing, ANOVA.
 
-Deep Learning on Knee MRI Scans | pandas, pytorch, sklearn [link: https://github.com/justin-aj/MRNet-Deep-Learning] Oct 2024 – Dec 2024
+Deep Learning on Knee MRI Scans | pandas, pytorch, sklearn [link: https://github.com/justin-aj/MRNet-Deep-Learning-Chirag] Oct 2024 – Dec 2024
 
 • Leveraged 3D CNN, ResNet 50, Transfer Learning on EfficientNet, to classify knee MRI scans.
 • Data augmentation on 1,370 MRI exams and fine-tuned hyperparameters for enhanced performance.
