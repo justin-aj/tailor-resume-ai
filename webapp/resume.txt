@@ -27,30 +27,20 @@ Machine Learning or Data Science or Data Analytics Co-op
 AARP – Washington DC, USA | Jun 2025 – Present
 
 Developed a predictive model to recommend digital premium offers, increasing membership joins, renewals, and auto-renew enrollments with measurable lift in conversion and retention.
-
 Leveraged behavioral, demographic, and transactional data to personalize offers, improving targeting efficiency and campaign effectiveness.
-
 Measured success using conversion lift (+18%), retention uplift (+12%), and incremental revenue (+$250K), driving significant gains in member engagement and subscription growth.
-
 Developed scalable ML model performance monitoring dashboard in Databricks (PySpark, SQL) to process large volumes of prediction logs, tracking 10+ KPIs across 25+ production models (Logistic Regression, Random Forest, Boosting).
-
 Automated ETL workflows to ingest and aggregate model outputs, enabling real-time diagnostics and improved model governance.
-
 Conducted residual diagnostics, probability calibration, temporal performance drift analysis for 20+ production use cases.
-
 Integrated statistical thresholds for data/model drift detection, triggering automated alerts and reducing drift incidents by 40%.
-
 Delivered insights for model selection and retraining cycles, improving model stability and reducing prediction error by 20%.
 
 AI Research Assistant or DS Research Assistant
 D'Amore-McKim School of Business, Northeastern University – Boston, USA | Jan 2025 – Apr 2025
 
 Built an NLP ETL pipeline (Airflow, RegEx, NLTK, spaCy) to preprocess 2000+ financial filings for ML and analytics workflows.
-
 Created a robust PDF/TXT parser (PyMuPDF, RegEx) to extract entities and structure financial text for compliance tracking.
-
 Benchmarked LLMs (Gemini, Claude, GPT-4) on 10-class financial classification, achieving 0.86+ F1-scores.
-
 Automated feature extraction, integrating outputs into analytics pipelines for trend analysis and reporting.
 Designed and implemented a sophisticated NLP pipeline leveraging a combination of Regular Expressions
 (RegEx), NLTK, spaCy, and advanced Large Language Models (LLMs) to extract and analyze
@@ -64,7 +54,6 @@ dynamic masking, gradient accumulation, and mixed-precision training to achieve 
 utilization while maintaining high accuracy.
 • Integrated LLaMA 3.3 70B for multi-class classification of entity-specific text, leveraging its 70 billion parameter
 architecture with prompt engineering and domain-specific fine-tuning to enhance semantic parsing by 200%.
-
 
 Data Engineer / Data Analytics Engineer
 Dynapac, Fayat Group – Bangalore, India | Jun 2023 – Jun 2024
@@ -81,10 +70,27 @@ fuel efficiency, operational trends, enabling business team to make efficient de
 • Designed Python ETL data pipeline orchestration, sharding, batch processing for 300M+ records from 1000+ machines.
 • Automated microservices deployment with Bitbucket Pipelines, using Django REST, FastAPI to build scalable REST APIs,
 YAML-based CI/CD pipelines for parallel testing, artifact management, and zero-downtime rollouts to Azure App Services.
+• Led database optimization for Dyn@Lyzer telemetry tool, transforming a multi-join architecture into partitioned,
+normalized structure, resulting in a 200% improvement in read query performance benchmarked with Pgbench.
+• Redesigned the Dyn@Lyzer authentication system, transitioning from encryption-based to hashing-based methods,
+reducing vulnerability risks by 99%. Conducted time series analysis on Dyn@Link compaction roller data, utilizing
+statistical techniques to analyze fuel efficiency patterns and identify operational trends.
+• Developed Python-based ETL microservices to process over 300 million records from 1000+ machines, integrating
+DjangoREST, FastAPI, and Azure Durable Functions to build scalable REST APIs.
+• Optimized Azure web and function apps performance by 75% through efficient API design and implementation,
+enhancing throughput and reducing latency.
 
-Data Analytics Intern – Mar 2023 – May 2023
+Data Analytics/Data Engineering/Data Science Intern 
+Dynapac, Fayat Group | Mar 2023 – May 2023
 
 Developed data ingestion pipeline to transform JSON into Azure Event Hubs, implementing partition keys for parallel streaming.
+Leveraged OpenCV models to implement real-time video analysis for compaction rollers, enabling automated
+detection of compaction patterns and obstacles through computer vision techniques such as edge detection and
+object classification.
+• Developed a real-time data processing pipeline to analyze GPS and telemetry data from over 500 machines,
+integrating streaming data ingestion and processing for low-latency insights.
+• Created a Progressive Web App (PWA) using Django and Maps JavaScript API, integrating GMaps services
+and GPS modules to monitor compaction rollers with real-time geospatial visualization.
 
 Projects
 
@@ -131,41 +137,35 @@ ELT Pipeline for TCGA DNA Methylation & Clinical Data | Apache Airflow, Google B
  • Designed for scalability and extensibility, facilitating integration with predictive modeling pipelines and downstream analytics.
 
 
-AskNEU – Retrieval-Augmented Generation System | LangChain, LangGraph, Docker, Pinecone, GCP, Cohere | [link] | Jan 2025 – Apr 2025
+AskNEU – Retrieval-Augmented Generation System | LangChain, LangGraph, Docker, Pinecone, GCP, Cohere | [link: https://github.com/justin-aj/AskNEU] | Jan 2025 – Apr 2025
 
 Architected RAG system with Cohere reranking and Complex Retrieval Framework (query decomposition, context unification) using GPT-4.1 and Gemini APIs.
-
 Scraped 50,000+ NEU web pages via Selenium, chunked data, embedded using LangChain, and stored in Pinecone vector DB for semantic search.
-
 Scaled with Docker, Kubernetes, Airflow DAGs, Terraform, CI/CD via GitHub Actions; monitored with Grafana.
 
-AI Banking Assistant | Transformers, PEFT, Hugging Face, PyTorch | [link] | Dec 2024 – Jan 2025
+AI Banking Assistant | Transformers, PEFT, Hugging Face, PyTorch | [link: https://github.com/justin-aj/AIBankingAssistant] | Dec 2024 – Jan 2025
 
 Built QA and conditional text generation tasks with 25,000+ QA pairs.
-
 Fine-tuned T5-small, GPT2-small, DistilBERT via QLoRA (4-bit quantization) and benchmarked Falcon-7B.
-
 Achieved BLEU 0.25, ROUGE-1 F1 0.54 on NVIDIA V100 GPU, indicating strong text generation performance.
 
 Amazon Product Sales Analysis – Tableau Dashboard | pandas, NumPy, Tableau | Dec 2024 – Jan 2025
 
 Preprocessed and transformed 2M+ rows for KPI tracking and visualization.
-
 Forecasted sales with ARIMA & Prophet, improving accuracy by 22%; implemented customer segmentation, boosting campaign response by 20%.
-
 Identified underperforming SKUs, improving stock turnover by 15%.
 
-Food Categorization using Machine Learning // Scalable Analytics Pipeline - Food Categorization | sklearn, Random Forest, TF-IDF, PCA | [link] | Oct 2024 – Dec 2024
+Food Categorization using Machine Learning // Scalable Analytics Pipeline - Food Categorization | sklearn, Random Forest, TF-IDF, PCA | [link: https://github.com/justin-aj/USDA-Branded-Foods] | Oct 2024 – Dec 2024
 
 Classified USDA food products into 70+ categories with 91.98% accuracy and 91.87% F1-score on 1.7M entries.
-
 Optimized with TF-IDF vectorization, PCA, and A/B testing; derived insights for nutrition and inventory management using hypothesis testing & ANOVA.
 Developed an ML system for food product categorization on USDA data, with feature engineering, data preprocessing.
 • Implemented Logistic Regression and Random Forest models, achieving 91.98% accuracy and 91.87% F1-Score on 1.7M
 entries, optimized via TF-IDF vectorization, PCA dimensionality reduction, and A/B testing for statistical validation.
 • Derived statistical insights for nutrition, inventory, recommendations, leveraging hypothesis testing, ANOVA.
 
-Deep Learning on Knee MRI Scans | pandas, pytorch, sklearn [link] Oct 2024 – Dec 2024
+Deep Learning on Knee MRI Scans | pandas, pytorch, sklearn [link: https://github.com/justin-aj/MRNet-Deep-Learning] Oct 2024 – Dec 2024
+
 • Leveraged 3D CNN, ResNet 50, Transfer Learning on EfficientNet, to classify knee MRI scans.
 • Data augmentation on 1,370 MRI exams and fine-tuned hyperparameters for enhanced performance.
 • Achieved a validation accuracy of 82.5% with an optimized 3D CNN to improve diagnostic accuracy.
