@@ -26,9 +26,12 @@ Experience
 Machine Learning or Data Science or Data Analytics Co-op
 AARP – Washington DC, USA | Jun 2025 – Present
 
-Developed a predictive model to recommend digital premium offers, increasing membership joins, renewals, and auto-renew enrollments with measurable lift in conversion and retention.
-Leveraged behavioral, demographic, and transactional data to personalize offers, improving targeting efficiency and campaign effectiveness.
-Measured success using conversion lift (+18%), retention uplift (+12%), and incremental revenue (+$250K), driving significant gains in member engagement and subscription growth.
+Developed a TTAR (Targeted Time-to-Auto-Renew) predictive model to optimize member conversion to auto-renewal through personalized digital premium offers, driving measurable lift in conversions, renewals, and engagement.
+Engineered a rich feature set (~1,500 features) spanning AARP order channel data, membership term history, registration methods, demographic & census data, lifestyle engagement, marital & employment status, voting behavior, social impact engagement, and advocacy/donation patterns.
+Applied advanced feature selection techniques (e.g., recursive feature elimination with cross-validation, mutual information, and regularization-based selection) to reduce dimensionality and identify high-impact predictors, enhancing model interpretability and stability.
+Implemented and benchmarked multiple industry-standard ML algorithms including Logistic Regression, Gradient Boosting Machines (GBM), and Random Forest, adhering to best practices like stratified cross-validation, hyperparameter tuning, and probability calibration.
+Followed production-grade ML practices: temporal validation, drift monitoring, model interpretability (SHAP/feature importance), and ensemble strategies to improve prediction robustness and generalizability.
+Achieved measurable business impact with conversion lift (+18%) and retention uplift (+12%), improving overall campaign performance and providing actionable insights to guide offer personalization and member engagement strategies.
 Developed scalable ML model performance monitoring dashboard in Databricks (PySpark, SQL) to process large volumes of prediction logs, tracking 10+ KPIs across 25+ production models (Logistic Regression, Random Forest, Boosting).
 Automated ETL workflows to ingest and aggregate model outputs, enabling real-time diagnostics and improved model governance.
 Conducted residual diagnostics, probability calibration, temporal performance drift analysis for 20+ production use cases.
@@ -93,6 +96,14 @@ integrating streaming data ingestion and processing for low-latency insights.
 and GPS modules to monitor compaction rollers with real-time geospatial visualization.
 
 Projects
+
+TTAR Predictive Model for Digital Premium Offers | Python, PySpark, SQL | Sept 2025 – Present
+Developed a Targeted Time-to-Auto-Renew (TTAR) model to recommend personalized digital premium offers, improving member conversion to auto-renew and overall campaign performance.
+Engineered a high-dimensional feature set (~1,500 features) from AARP order channels, membership history, registration methods, demographic/census data, lifestyle engagement, marital & employment status, voting patterns, social impact, and advocacy/donation data.
+Applied advanced feature selection techniques (recursive feature elimination, regularization-based selection, and mutual information) to identify high-impact predictors, reduce dimensionality, and enhance model interpretability.
+Implemented and benchmarked multiple ML algorithms including Logistic Regression, Gradient Boosting, and Random Forest, following industry-standard best practices such as stratified cross-validation, hyperparameter tuning, probability calibration, and temporal validation.
+Conducted residual diagnostics, probability calibration, and temporal drift analysis across production models to ensure stability and robustness of predictions.
+Achieved conversion lift (+18%) and retention uplift (+12%), providing actionable insights for offer personalization and improving overall campaign performance.
 
 ML Model Performance Monitoring System | databricks, pyspark | Jun 2025 – Aug 2025
 • Instrumented statistical drift detection metrics (KS, Lift) to monitor large-scale marketing campaign models.
