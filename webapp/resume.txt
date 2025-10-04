@@ -101,7 +101,7 @@ TTAR Predictive Model for Digital Premium Offers | Python, PySpark, SQL | Sept 2
 Developed a Targeted Time-to-Auto-Renew (TTAR) model to recommend personalized digital premium offers, improving member conversion to auto-renew and overall campaign performance.
 Engineered a high-dimensional feature set (~1,500 features) from AARP order channels, membership history, registration methods, demographic/census data, lifestyle engagement, marital & employment status, voting patterns, social impact, and advocacy/donation data.
 Applied advanced feature selection techniques (recursive feature elimination, regularization-based selection, and mutual information) to identify high-impact predictors, reduce dimensionality, and enhance model interpretability.
-Implemented and benchmarked multiple ML algorithms including Logistic Regression, Gradient Boosting, and Random Forest, following industry-standard best practices such as stratified cross-validation, hyperparameter tuning, probability calibration, and temporal validation.
+Implemented and benchmarked multiple ML algorithms including Logistic Regression, XGBoost, Gradient Boosting, and Random Forest, following industry-standard best practices such as stratified cross-validation, hyperparameter tuning, probability calibration, and temporal validation.
 Conducted residual diagnostics, probability calibration, and temporal drift analysis across production models to ensure stability and robustness of predictions.
 Achieved conversion lift (+18%) and retention uplift (+12%), providing actionable insights for offer personalization and improving overall campaign performance.
 
