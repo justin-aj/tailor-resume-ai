@@ -97,19 +97,15 @@ and GPS modules to monitor compaction rollers with real-time geospatial visualiz
 
 Projects
 
-TTAR Predictive Model for Digital Premium Offers | Python, PySpark, SQL | Sept 2025 – Present
-Developed a Targeted Time-to-Auto-Renew (TTAR) model to recommend personalized digital premium offers, improving member conversion to auto-renew and overall campaign performance.
-Engineered a high-dimensional feature set (~1,500 features) from AARP order channels, membership history, registration methods, demographic/census data, lifestyle engagement, marital & employment status, voting patterns, social impact, and advocacy/donation data.
-Applied advanced feature selection techniques (recursive feature elimination, regularization-based selection, and mutual information) to identify high-impact predictors, reduce dimensionality, and enhance model interpretability.
-Implemented and benchmarked multiple ML algorithms including Logistic Regression, XGBoost, Gradient Boosting, and Random Forest, following industry-standard best practices such as stratified cross-validation, hyperparameter tuning, probability calibration, and temporal validation.
-Conducted residual diagnostics, probability calibration, and temporal drift analysis across production models to ensure stability and robustness of predictions.
-Achieved conversion lift (+18%) and retention uplift (+12%), providing actionable insights for offer personalization and improving overall campaign performance.
+Transition-to-Auto-Renew (TTAR) Predictive Model with Digital Premium Offers | Python, PySpark, SQL | Sept 2025 – Present
+Developed a Transition-to-Auto-Renew (TTAR) model to help AARP personalize premium digital offers and improve auto-renewal conversions.
+Built a scalable feature pipeline integrating 3,000+ candidate signals from transactional, demographic, and engagement data.
+Used model-based feature selection with the GBT classifier to retain features covering 95% cumulative importance, reducing noise and improving generalization.
+Refined the ML pipeline with skewness-aware imputations, log-scaling, and variance filtering to stabilize inputs and reduce drift.
+Addressed class imbalance using weighted loss (weightCol in PySpark), precision–recall–based threshold tuning, and feature importance pruning for better minority class sensitivity.
+Benchmarked Logistic Regression, XGBoost, Gradient Boosting, and Random Forest using a train–validation split (faster than typical cross-validation for a 5M-row sample in PySpark) and probability calibration; XGBoost achieved the best recall–F1 tradeoff.
+Improved F1 and AUC-ROC by 5–8%, and increased Precision–Recall AUC, supporting incremental lifts in conversion and retention after production rollout.
 
-ML Model Performance Monitoring System | databricks, pyspark | Jun 2025 – Aug 2025
-• Instrumented statistical drift detection metrics (KS, Lift) to monitor large-scale marketing campaign models.
-• Built a Databricks monitoring framework for 25 ML models (LR, GBM, RF) with statistical threshold alerts.
-• Developed automated pyspark pipeline to process 3B+ scored records for realtime performance, drift analysis.
-• Identified, flagged degrading models enabling timely retraining, increasing campaign conversion rate by 15%.
 
 Cold Email / Job Application Automation | Python, Dagster, AI, Web Scraping | May 2025 – June 2025
  GitHub: https://github.com/justin-aj/ces-automation
