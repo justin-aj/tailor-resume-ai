@@ -3,7 +3,7 @@ Ajin Frank Justin
 
 Education
 Northeastern University – Boston, MA
-Master of Science in Data Science | GPA: 4.0/4.0 | Sep 2024 – Dec 2026 (Expected)
+Master of Science in Data Science | GPA: 4.0/4.0 | Sep 2024 – Dec 2026
 
 Coursework: Data Mining, Machine Learning, Deep Learning, MLOps, Natural Language Processing, Data Analytics & Engineering, Data Management & Processing, Artificial General Intelligence
 
@@ -26,8 +26,10 @@ Experience
 Machine Learning or Data Science or Data Analytics Co-op
 AARP – Washington DC, USA | Jun 2025 – Present
 
+Developed a gradient boosting model to personalize premium digital offers, boosting AARP auto-renewal conversions by 7% through targeted customer scoring (details in the Projects section).
+Built ML model performance monitoring framework in Databricks using PySpark, SQL, tracking key metrics such as AUC, KS, lift across 25+ production models for real-time drift detection, model health monitoring.
 Developed a TTAR (Targeted Time-to-Auto-Renew) predictive model to optimize member conversion to auto-renewal through personalized digital premium offers, driving measurable lift in conversions, renewals, and engagement.
-Engineered a rich feature set (~1,500 features) spanning AARP order channel data, membership term history, registration methods, demographic & census data, lifestyle engagement, marital & employment status, voting behavior, social impact engagement, and advocacy/donation patterns.
+Engineered a rich feature set (~3000 features) spanning AARP order channel data, membership term history, registration methods, demographic & census data, lifestyle engagement, marital & employment status, voting behavior, social impact engagement, and advocacy/donation patterns.
 Applied advanced feature selection techniques (e.g., recursive feature elimination with cross-validation, mutual information, and regularization-based selection) to reduce dimensionality and identify high-impact predictors, enhancing model interpretability and stability.
 Implemented and benchmarked multiple industry-standard ML algorithms including Logistic Regression, Gradient Boosting Machines (GBM), and Random Forest, adhering to best practices like stratified cross-validation, hyperparameter tuning, and probability calibration.
 Followed production-grade ML practices: temporal validation, drift monitoring, model interpretability (SHAP/feature importance), and ensemble strategies to improve prediction robustness and generalizability.
@@ -97,15 +99,14 @@ and GPS modules to monitor compaction rollers with real-time geospatial visualiz
 
 Projects
 
-Transition-to-Auto-Renew (TTAR) Predictive Model with Digital Premium Offers | Python, PySpark, SQL | Sept 2025 – Present
+Transition-to-Auto-Renew (TTAR) Predictive Model with Digital Premium Offers | Python, PySparkML, MLLib,  SQL | Sept 2025 – Present
 Developed a Transition-to-Auto-Renew (TTAR) model to help AARP personalize premium digital offers and improve auto-renewal conversions.
 Built a scalable feature pipeline integrating 3,000+ candidate signals from transactional, demographic, and engagement data.
 Used model-based feature selection with the GBT classifier to retain features covering 95% cumulative importance, reducing noise and improving generalization.
 Refined the ML pipeline with skewness-aware imputations, log-scaling, and variance filtering to stabilize inputs and reduce drift.
 Addressed class imbalance using weighted loss (weightCol in PySpark), precision–recall–based threshold tuning, and feature importance pruning for better minority class sensitivity.
-Benchmarked Logistic Regression, XGBoost, Gradient Boosting, and Random Forest using a train–validation split (faster than typical cross-validation for a 5M-row sample in PySpark) and probability calibration; XGBoost achieved the best recall–F1 tradeoff.
+Benchmarked Logistic Regression, Gradient Boosting, and Random Forest using a train–validation split (faster than typical cross-validation for a 5M-row sample in PySpark) and probability calibration; GBM achieved the best recall–F1 tradeoff.
 Improved F1 and AUC-ROC by 5–8%, and increased Precision–Recall AUC, supporting incremental lifts in conversion and retention after production rollout.
-
 
 Cold Email / Job Application Automation | Python, Dagster, AI, Web Scraping | May 2025 – June 2025
  GitHub: https://github.com/justin-aj/ces-automation

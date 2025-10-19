@@ -131,7 +131,7 @@
 \section{Education}
 \resumeSubHeadingListStart
 \resumeSubheading
-{Northeastern University}{\textbf{Sep 2024 - Dec 2026}}
+{Northeastern University}{\textbf{Sep 2024 - May 2026}}
 {\normalfont \textbf{Master of Science in Data Science}}
 {\normalfont \textbf{GPA: 4.0/4.0}}
 \resumeItemListStart
@@ -170,16 +170,16 @@
       {\normalfont \textbf{AARP, National Office}}
       {Washington DC, USA}
       \resumeItemListStart
-      \resumeItem{Built a \textbf{predictive ML model} for personalized digital premium offers, boosting joins, renewals, and auto-renewals with \textbf{+18\% conversion lift, +12\% retention uplift, and +15\% incremental revenue.}}
-      \resumeItem{Developed ML model performance monitoring dashboard in \textbf{Databricks} using \textbf{PySpark, SQL} for scalable data processing, tracking \textbf{10+ performance indicators} across \textbf{25 production models}.}
+\resumeItem{Developed a gradient boosting model to personalize premium digital offers, boosting AARP auto-renewal conversions by 7\% through targeted customer scoring (details in the \textbf{Projects} section).}
 
-      \resumeItem{Conducted research of historical model scores across Logistic Regression, Random Forest, Boosting models for \textbf{20+ production use cases}, focusing on residual diagnostics, probability calibration, temporal performance drift.}
+
+      \resumeItem{Built ML model performance monitoring framework in \textbf{Databricks} using \textbf{PySpark}, \textbf{SQL}, tracking key metrics such as AUC, KS, lift across \textbf{25+ production models} for real-time drift detection, model health monitoring.}
 
 
     \resumeItemListEnd
     
       \resumeSubheading
-      {\textcolor{blue}{DS Research Assistant}}{\textbf{Jan 2025 -- Apr 2025}}
+      {\textcolor{blue}{NLP Graduate Research Assistant}}{\textbf{Jan 2025 -- Apr 2025}}
       {\normalfont \textbf{D'Amore-Mckim School of Business, Northeastern University}}
       {Boston, USA}
       \resumeItemListStart
@@ -219,17 +219,16 @@
 \section{Projects}
     \resumeSubHeadingListStart
         
-        \resumeProjectHeading
-          {\textbf{ML Model Performance Monitoring System} $|$ \emph{databricks, pyspark}}{\textbf{Jun 2025 -- Aug 2025}}
-          \resumeItemListStart
-    \resumeItem{Instrumented statistical drift detection metrics \textbf{(KS, Lift)} to monitor large-scale marketing campaign models.}
-\resumeItem{Built a Databricks monitoring framework for \textbf{25 ML models} (LR, GBM, RF) with statistical threshold alerts.}
-\resumeItem{Developed automated pyspark pipeline to process \textbf{3B+ scored records} for realtime performance, drift analysis.}
-\resumeItem{Identified, flagged \textbf{degrading models} enabling timely retraining, increasing campaign conversion rate by \textbf{15\%}.}
+      \resumeProjectHeading
+{\textbf{Transition-to-Auto-Renew (TTAR) Predictive Model} $|$ \emph{Databricks, PySpark}}{\textbf{Sept 2025 -- Present}}
+\resumeItemListStart
+\resumeItem{Architected ML scalable pipeline to process, clean 3,000+ features; performed model-based feature selection using Gradient Boosting Trees PySpark for optimal predictor identification.}
+\resumeItem{Enhanced ML pipeline(skewness-aware imputations, log-scaling, variance filtering) to stabilize inputs, reduce drift.}
+\resumeItem{Handled class imbalance with \textbf{weighted loss, feature importance} pruning to improve minority class sensitivity.}
+\resumeItem{Benchmarked LR, GBM, RF (TrainValidation PySpark) on 5M samples; GBM achieved the best PR-AUC score.}
+\resumeItem{Improved F1 and AUC-PR by 5-8\%, supporting incremental lifts in conversion and retention post-deployment.}
+\resumeItemListEnd
 
-
-
-  \resumeItemListEnd
     
     \resumeProjectHeading
           {\textbf{AskNEU RAG System} $|$ \emph{RAG, LangChain, Docker, Pinecone, GCP} \ {\href{https://github.com/justin-aj/AskNEU}{[link]}}}{\textbf{Jan 2025 -- Apr 2025}}
