@@ -297,6 +297,24 @@ Duration: Sept 2025 – Present
 
 --------------------------------------------------------------------------------
 
+ML Model Performance Monitoring System
+Technologies: Databricks, PySpark
+Duration: Jun 2025 – Aug 2025
+
+• Instrumented statistical drift detection metrics (KS, Lift) to monitor large-scale 
+  marketing campaign models.
+
+• Built a Databricks monitoring framework for 25 ML models (LR, GBM, RF) with 
+  statistical threshold alerts.
+
+• Developed automated PySpark pipeline to process 3B+ scored records for real-time 
+  performance, drift analysis.
+
+• Identified, flagged degrading models enabling timely retraining, increasing 
+  campaign conversion rate by 15%.
+
+--------------------------------------------------------------------------------
+
 Cold Email / Job Application Automation
 Technologies: Python, Dagster, AI, Web Scraping
 Duration: May 2025 – June 2025
