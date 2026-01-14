@@ -81,15 +81,15 @@ class ResumeProcessor:
             ---------------------------------------------------------------------------------------------------
             JOB DESCRIPTION: 
             
-            {job_description}
+                    {job_description}
             ---------------------------------------------------------------------------------------------------
             OVERLEAF LATEX RESUME: 
             
-            {latex_resume}
+                    {latex_resume}
             ---------------------------------------------------------------------------------------------------
             ADDITIONAL CV/INFORMATION: 
             
-            {additional_info}
+                    {additional_info}
             ---------------------------------------------------------------------------------------------------
             
             🔑 INSTRUCTIONS
@@ -169,12 +169,6 @@ class ResumeProcessor:
             • Appeals to recruiters and hiring managers
             • Maintains professional formatting and readability
             • Stays within the 1-page constraint
-
-            OUTPUT FORMAT REQUIREMENTS:
-            • Output ONLY the complete LaTeX code without any explanations, markdown code blocks, or commentary
-            • Do NOT wrap the code in markdown code blocks (no ```latex or ``` markers)
-            • Do NOT add any text before or after the LaTeX code
-            • Start directly with \\documentclass or the first line of the LaTeX document
 
             Please provide the revised LaTeX code for the resume.
 
