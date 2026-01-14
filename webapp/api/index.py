@@ -97,7 +97,7 @@ class ResumeProcessor:
             LaTeX Expertise & Formatting:
             • Maintain perfect LaTeX syntax throughout - ensure all commands are properly formatted
             • Preserve existing LaTeX document structure, packages, and environments
-            • DO NOT change the existing LaTeX formatting style, template, or layout structure
+            • Preserve the existing template structure and LaTeX formatting style, but update content within sections
             • Keep the current formatting patterns, spacing, fonts, and visual design intact
             • Use proper LaTeX escaping for special characters (ampersands, percentages, etc.)
             • Keep all braces, environments, and commands properly matched and nested
@@ -106,6 +106,8 @@ class ResumeProcessor:
             Keyword Optimization:
             • Carefully analyze the job description and extract the most important hard skills, technical terms, 
               tools, certifications, and role-specific keywords.
+            • Prioritize keywords that appear 3+ times in the job description as these are likely core requirements.
+            • Focus on technical skills and tools over soft skills for ATS optimization.
             • Naturally integrate these keywords throughout the resume — especially in experience bullet points, 
               summary, and skills section — while maintaining readability and authenticity.
             • Place keywords in a way that ATS systems will parse correctly (e.g., within both Skills and Experience sections).
@@ -135,8 +137,9 @@ class ResumeProcessor:
 
             CRITICAL CONSTRAINTS:
 
-            LaTeX Format Preservation: DO NOT modify the existing LaTeX template, formatting style, or visual layout. 
-            Only update the CONTENT within the existing structure and formatting patterns.
+            LaTeX Format Preservation: Preserve the existing LaTeX template structure and formatting style (fonts, spacing, visual design), 
+            but strategically update the CONTENT within sections (bullet points, experiences, projects) to align with 
+            the job description.
 
             LaTeX Quality: The output must compile without errors and maintain professional LaTeX formatting standards.
 
@@ -151,8 +154,8 @@ class ResumeProcessor:
             Avoid Line Expansion: Do not add new lines or sections if it causes the document to expand in length. 
             If new information is crucial, integrate it by replacing less relevant existing text.
 
-            STRICT LINE CHARACTER LIMIT: Each line of LaTeX code, including spaces, must not exceed 100 characters. 
-            This is critical to ensure proper formatting and prevent line breaks in the compiled PDF.
+            Line Length Guidance: Keep LaTeX code lines reasonably short (aim for 120-150 characters max per line) 
+            for readability, but prioritize proper LaTeX syntax and compilation over strict line length limits.
 
             LaTeX Special Characters: When using special characters in text within the LaTeX code, 
             ensure they are properly escaped to avoid LaTeX compilation errors.
@@ -166,6 +169,13 @@ class ResumeProcessor:
             • Appeals to recruiters and hiring managers
             • Maintains professional formatting and readability
             • Stays within the 1-page constraint
+
+            OUTPUT FORMAT REQUIREMENTS:
+            • Output ONLY the complete LaTeX code without any explanations, markdown code blocks, or commentary
+            • Do NOT wrap the code in markdown code blocks (no ```latex or ``` markers)
+            • Do NOT add any text before or after the LaTeX code
+            • Start directly with \\documentclass or the first line of the LaTeX document
+            • End with \\end{document} with no additional text
 
             Please provide the revised LaTeX code for the resume.
 
