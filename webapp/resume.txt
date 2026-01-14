@@ -14,11 +14,14 @@ EDUCATION
 ================================================================================
 
 Northeastern University – Boston, MA
-Master of Science in Data Science
+Master of Science in Data Science (Specialization: Computer Science)
 GPA: 4.0/4.0
 Duration: Sep 2024 – Dec 2026
 
 Coursework:
+- Algorithms
+- Building Scalable Distributed Systems
+- Web Development
 - Data Mining
 - Machine Learning
 - Deep Learning
@@ -40,23 +43,29 @@ TECHNICAL SKILLS
 Languages & Databases:
 - Python (5 yrs, Advanced)
 - SQL (3 yrs, Advanced)
+- TypeScript, JavaScript
 - C++, C#, GoLang
 - PostgreSQL, MySQL, MongoDB, SparkSQL, Azure SQL
-- Pinecone, DuckDB, OLAP, OLTP, BigQuery
+- Pinecone, Qdrant, FAISS, DuckDB, OLAP, OLTP, BigQuery
+- Redis
 
 Data Processing & Engineering:
-- pandas, NumPy, PySpark, Spark
-- MapReduce, Hadoop, Hive, Kafka
-- Airflow, EventHubs, dbt
+- pandas, NumPy, PySpark, PySparkML, Spark
+- MapReduce, Hadoop, Hive, Kafka, RabbitMQ
+- Airflow, Dagster, EventHubs, dbt
 - Delta Lake, Databricks, Apache Flink
+- DVC
 
 ML/AI & Analytics:
-- Regression, Tree-based Ensembles
-- sklearn, Transformers, PyTorch, scikit-learn, TensorFlow
-- OpenCV, AI Agents, LSTM
-- LangChain, LangGraph, Diffusion Models
+- Regression, Tree-based Ensembles, XGBoost
+- sklearn, Transformers, PyTorch, scikit-learn, TensorFlow, MLLib
+- OpenCV, AI Agents, LSTM, CNN, ResNet, EfficientNet
+- LangChain, LangGraph, LlamaIndex, Diffusion Models
 - Hugging Face, NLP, PEFT, QLoRA
-- ARIMA, Prophet
+- Sentence-Transformers, Ollama, Cohere, Gemini AI
+- T5, GPT2, DistilBERT, Falcon, GPT-4
+- ARIMA, Prophet, CUDA
+- TF-IDF, PCA
 
 Visualization & BI Tools:
 - Matplotlib, Seaborn, Plotly
@@ -65,30 +74,77 @@ Visualization & BI Tools:
 Cloud & MLOps:
 - AWS (S3, Redshift)
 - Azure (Data Factory, Blob Storage)
-- GCP (BigQuery, VertexAI)
+- GCP (BigQuery, VertexAI, Cloud Storage, Pub/Sub)
 - Docker, Kubernetes, MLFlow, Terraform
 - GitHub Actions, BitBucket, Grafana
+- Vercel, PM2, nginx
 
-Web Frameworks:
+Web Frameworks & APIs:
 - Flask, Django, FastAPI, Streamlit, ASP.NET
+- Node.js, Express.js, Next.js, React
+- RESTful APIs, WebSocket, JWT, OAuth2
+- Google Books API, Gmail API
+- Mongoose ODM
 
 Big Data & Formats:
 - Snowflake, Databricks
 - Spark Streaming, Apache Flink, Delta Lake
-- Parquet, Avro
+- Parquet, Avro, JSON
 - GitHub Actions, BitBucket
 
-Methodologies & BI:
+Methodologies & Tools:
 - Data Modeling, Data Warehousing, Data Lakes
+- Web Scraping (Selenium, BeautifulSoup, Crawl4AI, Playwright)
 - Excel, Scrum, Agile Methodologies
+- A/B Testing, Hypothesis Testing, ANOVA
 
 ================================================================================
 PROFESSIONAL EXPERIENCE
 ================================================================================
 
-Machine Learning / Data Science / Data Analytics Co-op
+Full-Stack AI Research Assistant
+DASH AI Hub, Northeastern University - Boston, MA
+Duration: Jan 2026 - Present
+
+Key Accomplishments:
+
+• Architected scalable microservices platform handling 100+ concurrent users with 300-600x 
+  performance improvement (30-60s → <100ms API response) by migrating from synchronous blocking 
+  architecture to asynchronous queue-based system using RabbitMQ, Redis, and worker pools.
+
+• Developed hybrid TypeScript/Node.js backend (Express.js) with Python Flask microservice for 
+  AI/ML processing, implementing JWT authentication, AWS S3 integration for file storage, MongoDB 
+  with Mongoose ODM, and WebSocket-based real-time progress updates.
+
+• Engineered intelligent RAG (Retrieval-Augmented Generation) system using LlamaIndex and 
+  Qdrant vector database, migrating from FAISS to implement semantic chunking with 1024-dimensional 
+  BGE embeddings, achieving accurate context retrieval from academic documents for AI grading.
+
+• Built multi-agent LLM orchestration system with LangGraph for parallel essay evaluation 
+  across multiple criteria, reducing grading time from 10s to 3s per essay through asynchronous 
+  agent coordination and optimized prompt engineering.
+
+• Implemented robust gaming detection and guardrails achieving 81% reduction in inappropriate 
+  scores (65/100 → 12/100 for gibberish submissions) through AI-powered quality analysis, 
+  gibberish detection, and coherence validation.
+
+• Designed enterprise-grade features including bulk grading with Excel integration, automatic 
+  retry logic with dead letter queues, comprehensive error handling, grading analytics dashboard, 
+  and RESTful API architecture supporting course/assignment/attachment management.
+
+• Deployed production infrastructure using Docker containerization, PM2 process management 
+  for high availability (4 API instances, 6 worker instances), nginx reverse proxy, and 
+  horizontal scaling capabilities.
+
+• Leveraged modern AI stack: PyTorch, Transformers, Sentence-Transformers, LangChain, 
+  Ollama LLM, CUDA acceleration, and multi-format document processing (PDF/TXT) with 
+  semantic analysis.
+
+
+
+Machine Learning Co-op
 AARP – Washington DC, USA
-Duration: Jun 2025 – Present
+Duration: Jun 2025 – Dec 2025
 
 Key Accomplishments:
 
@@ -185,7 +241,7 @@ Key Accomplishments:
 
 --------------------------------------------------------------------------------
 
-Data Engineer / Data Analytics Engineer
+Data Engineer / Data Analytics /  Software Engineer
 Dynapac, Fayat Group – Bangalore, India
 Duration: Jun 2023 – Jun 2024
 
@@ -243,7 +299,7 @@ Key Accomplishments:
 
 --------------------------------------------------------------------------------
 
-Data Analytics / Data Engineering / Data Science Intern
+Data Analytics / Data Engineering / Data Science / Software Engineer Intern
 Dynapac, Fayat Group – Bangalore, India
 Duration: Mar 2023 – May 2023
 
@@ -268,9 +324,111 @@ Key Accomplishments:
 PROJECTS
 ================================================================================
 
+EssayBot – AI-Powered Essay Grading Platform
+Technologies: TypeScript, Node.js, Express.js, Python, Flask, RabbitMQ, Redis, MongoDB, 
+LlamaIndex, Qdrant, LangGraph, PyTorch, Docker, PM2, nginx
+Duration: Jan 2026 – Present
+
+• Architected scalable microservices platform handling 100+ concurrent users with 300-600x 
+  performance improvement (30-60s → <100ms API response) by migrating from synchronous blocking 
+  architecture to asynchronous queue-based system using RabbitMQ, Redis, and worker pools.
+
+• Developed hybrid TypeScript/Node.js backend (Express.js) with Python Flask microservice for AI/ML 
+  processing, implementing JWT authentication, AWS S3 integration for file storage, MongoDB with 
+  Mongoose ODM, and WebSocket-based real-time progress updates.
+
+• Engineered intelligent RAG (Retrieval-Augmented Generation) system using LlamaIndex and Qdrant 
+  vector database, migrating from FAISS to implement semantic chunking with 1024-dimensional BGE 
+  embeddings, achieving accurate context retrieval from academic documents for AI grading.
+
+• Built multi-agent LLM orchestration system with LangGraph for parallel essay evaluation across multiple 
+  criteria, reducing grading time from 10s to 3s per essay through asynchronous agent coordination and 
+  optimized prompt engineering.
+
+• Implemented robust gaming detection and guardrails achieving 81% reduction in inappropriate scores 
+  (65/100 → 12/100 for gibberish submissions) through AI-powered quality analysis, gibberish detection, 
+  and coherence validation.
+
+• Designed enterprise-grade features including bulk grading with Excel integration, automatic retry 
+  logic with dead letter queues, comprehensive error handling, grading analytics dashboard, and RESTful 
+  API architecture supporting course/assignment/attachment management.
+
+• Deployed production infrastructure using Docker containerization, PM2 process management for 
+  high availability (4 API instances, 6 worker instances), nginx reverse proxy, and horizontal 
+  scaling capabilities.
+
+• Leveraged modern AI stack: PyTorch, Transformers, Sentence-Transformers, LangChain, 
+  Ollama LLM, CUDA acceleration, and multi-format document processing (PDF/TXT) 
+  with semantic analysis.
+
+--------------------------------------------------------------------------------
+
+GoodReads Clone – Full-Stack Book Discovery Platform
+Technologies: Next.js, TypeScript, Node.js, Express.js, MongoDB, Mongoose, Google Books API, Vercel, CSS
+Duration: Sep 2024 – Dec 2024
+
+• Developed a full-stack web application inspired by GoodReads, enabling users to discover, track, 
+  and review books. Built as a collaborative team project for CS5610.
+
+• Designed and implemented a responsive single-page application using Next.js and TypeScript, 
+  deployed on Vercel. Utilized modern React patterns with CSS styling for an intuitive user experience.
+
+• Architected a RESTful API server using Node.js and Express.js with MongoDB/Mongoose for data 
+  persistence. Implemented modular architecture with dedicated modules for Books, Bookshelves, 
+  Reviews, Users, Requests, and Search functionality.
+
+• Integrated Google Books API for comprehensive book search and discovery, enabling users to access 
+  extensive book metadata and information.
+
+• Built user authentication system with secure session management to protect user data and maintain 
+  personalized experiences.
+
+• Developed personalized bookshelf functionality allowing users to organize reading lists across 
+  multiple categories and preferences.
+
+• Implemented book review and rating system with CRUD operations, enabling community engagement 
+  and book recommendations.
+
+• Created book request feature for community-driven content suggestions, fostering user interaction 
+  and platform growth.
+
+--------------------------------------------------------------------------------
+
+Kambaz – Full-Stack Learning Management System (Canvas Clone)
+Technologies: Next.js, TypeScript, Node.js, Express.js, RESTful APIs, Vercel, CSS
+Duration: Sep 2024 – Dec 2024
+
+• Built a comprehensive Learning Management System replicating core Canvas LMS functionality, 
+  providing a streamlined platform for students and instructors to manage courses, assignments, 
+  and enrollments.
+
+• Developed a responsive single-page application using Next.js and TypeScript, featuring intuitive 
+  navigation and real-time updates. Deployed to production on Vercel with optimized performance 
+  and modern UI/UX design patterns.
+
+• Engineered a RESTful API server using Node.js and Express.js, implementing modular architecture 
+  to handle course management, user authentication, and educational content delivery.
+
+• Implemented role-based access control (RBAC) for students, instructors, and administrators, 
+  ensuring secure and appropriate access to platform resources.
+
+• Built comprehensive course management system with modules, assignments, and grading capabilities, 
+  streamlining the educational workflow for instructors and students.
+
+• Developed user enrollment and authentication workflows, enabling seamless onboarding and secure 
+  access management across the platform.
+
+• Created intuitive dashboard for tracking course progress and deadlines, providing students 
+  with real-time visibility into their academic performance.
+
+• Designed scalable API architecture supporting CRUD operations across all resources, ensuring 
+  maintainability and extensibility for future feature development.
+
+--------------------------------------------------------------------------------
+
 Transition-to-Auto-Renew (TTAR) Predictive Model with Digital Premium Offers
 Technologies: Python, PySparkML, MLLib, SQL
-Duration: Sept 2025 – Present
+Duration: Sept 2025 – Dec 2025
 
 • Developed a Transition-to-Auto-Renew (TTAR) model to help AARP personalize premium 
   digital offers and improve auto-renewal conversions.
