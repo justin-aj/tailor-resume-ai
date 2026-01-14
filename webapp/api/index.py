@@ -175,7 +175,6 @@ class ResumeProcessor:
             • Do NOT wrap the code in markdown code blocks (no ```latex or ``` markers)
             • Do NOT add any text before or after the LaTeX code
             • Start directly with \\documentclass or the first line of the LaTeX document
-            • End with \\end{document} with no additional text
 
             Please provide the revised LaTeX code for the resume.
 
