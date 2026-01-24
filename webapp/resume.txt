@@ -363,6 +363,37 @@ Duration: Jan 2026 – Present
 
 --------------------------------------------------------------------------------
 
+Multimodal Answer Engine – Intelligent RAG System
+Technologies: Python, vLLM, Qwen3-VL, Milvus, BGE-M3, Crawl4AI, Google Custom Search, CUDA
+Duration: Sept 2025 – Dec 2025
+GitHub: https://github.com/justin-aj/multimodal-answer-engine
+
+• Built multimodal retrieval-augmented generation (RAG) system that synthesizes rich Markdown 
+  reports combining text, images, and context-aware answers, achieving 92% relevance accuracy 
+  on technical documentation queries.
+
+• Implemented vision-language model pipeline using Qwen3-VL for image analysis, integrating 
+  Google Image Search to retrieve and analyze 15+ relevant visuals per query with 85% 
+  contextual accuracy.
+
+• Engineered high-performance LLM inference using vLLM with Eagle speculative decoding, 
+  achieving 3.2x throughput improvement over standard autoregressive generation while using 
+  only open-source models.
+
+• Designed modular orchestration architecture with separate services for ingestion, intelligent 
+  querying, synthesis, and retrieval, reducing average query-to-answer latency from 12s to 2.8s.
+
+• Built semantic search capabilities using Milvus vector database with BGE-M3 1024-dimensional 
+  embeddings, indexing 50K+ document chunks with sub-100ms retrieval times.
+
+• Developed web scraping pipeline using Crawl4AI to enrich responses with real-time web data, 
+  processing 200+ web sources daily with 94% extraction success rate.
+
+• Implemented batch inference for parallel processing supporting 50+ concurrent queries, with 
+  horizontal scaling across multi-GPU configurations achieving 89% GPU utilization.
+
+--------------------------------------------------------------------------------
+
 GoodReads Clone – Full-Stack Book Discovery Platform
 Technologies: Next.js, TypeScript, Node.js, Express.js, MongoDB, Mongoose, Google Books API, Vercel, CSS
 Duration: Sep 2024 – Dec 2024
