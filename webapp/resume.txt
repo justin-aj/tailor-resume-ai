@@ -4,7 +4,7 @@ AJIN FRANK JUSTIN
 Phone: 857-356-5917
 Email: ajinfrankj@gmail.com
 LinkedIn: linkedin.com/in/ajin-frank-j
-Portfolio: [portfolio link]
+Portfolio: justin-aj.github.io
 GitHub: github.com/justin-aj
 HuggingFace: [HuggingFace profile]
 Status: Open to Relocation
