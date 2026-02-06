@@ -1,5 +1,10 @@
 import os
+import sys
+import asyncio
 from flask import Flask, render_template, request, flash, redirect, url_for, jsonify
+
+# Add parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
 
 # Create Flask app with proper template and static folder paths for Vercel
 app = Flask(__name__, 
@@ -7,6 +12,14 @@ app = Flask(__name__,
             static_folder='../static')
 app.secret_key = 'yoyo_secret_key'  
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
+
+# Import scraper (will be available after installation)
+try:
+    from scraper import JobScraper
+    SCRAPER_AVAILABLE = True
+except ImportError:
+    SCRAPER_AVAILABLE = False
+    print("Warning: Scraper module not available. Install required packages: pip install -r scraper_requirements.txt")
 
 def read_resume_txt():
     """Read content from resume.txt file"""
@@ -328,6 +341,89 @@ def save_latex_resume():
             return jsonify({'success': False, 'message': 'Failed to save content'})
     except Exception as e:
         return jsonify({'success': False, 'message': f'Error: {str(e)}'})
+
+@app.route('/scraper')
+def scraper():
+    """Job URL scraper page"""
+    return render_template('scraper.html')
+
+@app.route('/api/scrape-job', methods=['POST'])
+def scrape_job():
+    """API endpoint to scrape a job description from URL"""
+    if not SCRAPER_AVAILABLE:
+        return jsonify({
+            'success': False,
+            'error': 'Scraper not available. Please install required packages: pip install -r scraper_requirements.txt'
+        }), 500
+    
+    try:
+        data = request.get_json()
+        url = data.get('url', '').strip()
+        
+        if not url:
+            return jsonify({'success': False, 'error': 'URL is required'}), 400
+        
+        # Run async scraper using context manager
+        async def scrape():
+            async with JobScraper() as scraper:
+                return await scraper.scrape(url)
+        
+        result = asyncio.run(scrape())
+        
+        if result.success:
+            return jsonify({
+                'success': True,
+                'title': result.job_title or 'Job Posting',
+                'company': result.company_name,
+                'location': result.location,
+                'description': result.to_resume_prompt(),
+                'url': url
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': result.error or 'Unknown error occurred'
+            }), 500
+    
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
+
+@app.route('/api/generate-prompt', methods=['POST'])
+def generate_prompt_api():
+    """API endpoint to generate prompt for a scraped job"""
+    try:
+        data = request.get_json()
+        job_description = data.get('job_description', '').strip()
+        
+        if not job_description:
+            return jsonify({'success': False, 'error': 'Job description is required'}), 400
+        
+        # Get default resume data
+        latex_resume = read_data_science_resume_tex()
+        additional_info = read_resume_txt()
+        
+        if not latex_resume:
+            return jsonify({'success': False, 'error': 'LaTeX resume file not found'}), 400
+        
+        # Generate the complete prompt
+        processor = ResumeProcessor()
+        result = processor.generate_prompt(job_description, latex_resume, additional_info)
+        
+        return jsonify({
+            'success': True,
+            'prompt': result['prompt'],
+            'word_count': result.get('word_count', 0),
+            'char_count': result.get('char_count', 0)
+        })
+    
+    except Exception as e:
+        return jsonify({
+            'success': False,
+            'error': str(e)
+        }), 500
 
 # For development
 if __name__ == '__main__':

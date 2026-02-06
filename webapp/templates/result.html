@@ -4,128 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tailored Resume - Resume Tailor AI</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
 </head>
-<body>
-    <div class="container-fluid">
-        <!-- Header -->
-        <div class="row">
-            <div class="col-12">
-                <nav class="navbar navbar-dark bg-success">
-                    <div class="container-fluid">
-                        <span class="navbar-brand mb-0 h1">
-                            <i class="fas fa-check-circle me-2"></i>AI Prompt Generated Successfully
-                        </span>
-                        <a href="{{ url_for('index') }}" class="btn btn-outline-light">
-                            <i class="fas fa-arrow-left me-2"></i>Generate Another
-                        </a>
-                    </div>
-                </nav>
+<body class="bg-gradient-to-br from-green-50 via-white to-emerald-50 min-h-screen">
+    <!-- Header -->
+    <nav class="bg-gradient-to-r from-green-600 to-emerald-600 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-check-circle text-white text-2xl"></i>
+                    <span class="text-white text-xl font-bold">AI Prompt Generated Successfully</span>
+                </div>
+                <a href="{{ url_for('index') }}" class="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg transition-all duration-200 backdrop-blur-sm">
+                    <i class="fas fa-arrow-left mr-2"></i>Generate Another
+                </a>
             </div>
         </div>
+    </nav>
 
+    <!-- Main Container -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
         <!-- Job Description Summary -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5><i class="fas fa-briefcase me-2"></i>Job Description Summary</h5>
-                    </div>
-                    <div class="card-body">
-                        <p class="text-muted">{{ job_description }}</p>
-                    </div>
-                </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-8">
+            <div class="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-4">
+                <h3 class="text-xl font-bold text-white flex items-center">
+                    <i class="fas fa-briefcase mr-2"></i>Job Description Summary
+                </h3>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 leading-relaxed">{{ job_description }}</p>
             </div>
         </div>
 
         <!-- Generated Prompt -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0"><i class="fas fa-clipboard-list me-2"></i>Complete AI Prompt</h5>
-                        <div>
-                            <button type="button" class="btn btn-outline-secondary btn-sm me-2" onclick="copyToClipboard()">
-                                <i class="fas fa-copy me-1"></i>Copy Prompt
-                            </button>
-                            <button type="button" class="btn btn-success btn-sm" onclick="openAIServices()">
-                                <i class="fas fa-external-link-alt me-1"></i>Open AI Services
-                            </button>
-                        </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4 flex flex-wrap justify-between items-center gap-4">
+                <h3 class="text-xl font-bold text-white flex items-center">
+                    <i class="fas fa-clipboard-list mr-2"></i>Complete AI Prompt
+                </h3>
+                <div class="flex space-x-2">
+                    <button type="button" 
+                            class="px-4 py-2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white rounded-lg transition-all duration-200 backdrop-blur-sm flex items-center" 
+                            onclick="copyToClipboard()">
+                        <i class="fas fa-copy mr-2"></i>Copy Prompt
+                    </button>
+                    <button type="button" 
+                            class="px-4 py-2 bg-white text-green-600 hover:bg-opacity-90 rounded-lg transition-all duration-200 flex items-center font-semibold" 
+                            onclick="openAIServices()">
+                        <i class="fas fa-external-link-alt mr-2"></i>Open AI Services
+                    </button>
+                </div>
+            </div>
+            <div class="p-0">
+                <textarea id="completePrompt" 
+                         class="w-full px-6 py-4 border-0 font-mono text-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-y" 
+                         rows="25" 
+                         readonly>{{ complete_prompt }}</textarea>
+            </div>
+            <div class="bg-gray-50 px-6 py-4">
+                <div class="flex flex-wrap justify-between items-center gap-4">
+                    <div class="text-sm text-gray-600 flex items-center space-x-4">
+                        <span class="flex items-center">
+                            <i class="fas fa-info-circle mr-1"></i>
+                            Words: <span id="wordCount" class="font-semibold ml-1">{{ word_count }}</span>
+                        </span>
+                        <span class="text-gray-400">|</span>
+                        <span class="flex items-center">
+                            Characters: <span id="charCount" class="font-semibold ml-1">{{ char_count }}</span>
+                        </span>
                     </div>
-                    <div class="card-body p-0">
-                        <textarea id="completePrompt" class="form-control font-monospace border-0" 
-                                 rows="25" readonly style="resize: vertical;">{{ complete_prompt }}</textarea>
-                    </div>
-                    <div class="card-footer">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <small class="text-muted">
-                                    <i class="fas fa-info-circle me-1"></i>
-                                    Words: <span id="wordCount">{{ word_count }}</span> | 
-                                    Characters: <span id="charCount">{{ char_count }}</span>
-                                </small>
-                            </div>
-                            <div class="col-md-6 text-end">
-                                <small class="text-success">
-                                    <i class="fas fa-check-circle me-1"></i>Ready to paste into your AI service
-                                </small>
-                            </div>
-                        </div>
+                    <div class="text-sm text-green-600 font-semibold flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i>Ready to paste into your AI service
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- Quick Links to AI Services -->
-        <div class="row mt-4">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5><i class="fas fa-robot me-2"></i>AI Service Quick Links</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-3 mb-3">
-                                <a href="https://chat.openai.com/" target="_blank" class="btn btn-outline-primary w-100">
-                                    <i class="fas fa-brain me-2"></i>ChatGPT
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="https://claude.ai/" target="_blank" class="btn btn-outline-info w-100">
-                                    <i class="fas fa-comments me-2"></i>Claude
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="https://gemini.google.com/" target="_blank" class="btn btn-outline-warning w-100">
-                                    <i class="fas fa-star me-2"></i>Gemini
-                                </a>
-                            </div>
-                            <div class="col-md-3 mb-3">
-                                <a href="https://perplexity.ai/" target="_blank" class="btn btn-outline-secondary w-100">
-                                    <i class="fas fa-search me-2"></i>Perplexity
-                                </a>
-                            </div>
-                        </div>
-                        <div class="alert alert-info mt-3">
-                            <i class="fas fa-lightbulb me-2"></i>
-                            <strong>How to use:</strong> Copy the prompt above and paste it into any AI service. The prompt contains all your inputs and detailed instructions for optimal resume tailoring.
-                        </div>
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden mt-8 mb-8">
+            <div class="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-4">
+                <h3 class="text-xl font-bold text-white flex items-center">
+                    <i class="fas fa-robot mr-2"></i>AI Service Quick Links
+                </h3>
+            </div>
+            <div class="p-6">
+                <div class="grid md:grid-cols-4 gap-4 mb-6">
+                    <a href="https://chat.openai.com/" target="_blank" 
+                       class="flex items-center justify-center px-6 py-4 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl font-semibold">
+                        <i class="fas fa-brain mr-2"></i>ChatGPT
+                    </a>
+                    <a href="https://claude.ai/" target="_blank" 
+                       class="flex items-center justify-center px-6 py-4 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl font-semibold">
+                        <i class="fas fa-comments mr-2"></i>Claude
+                    </a>
+                    <a href="https://gemini.google.com/" target="_blank" 
+                       class="flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl font-semibold">
+                        <i class="fas fa-star mr-2"></i>Gemini
+                    </a>
+                    <a href="https://perplexity.ai/" target="_blank" 
+                       class="flex items-center justify-center px-6 py-4 bg-gradient-to-r from-gray-600 to-gray-700 hover:from-gray-700 hover:to-gray-800 text-white rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl font-semibold">
+                        <i class="fas fa-search mr-2"></i>Perplexity
+                    </a>
+                </div>
+                <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 flex items-start">
+                    <i class="fas fa-lightbulb text-blue-600 text-xl mr-3 mt-1"></i>
+                    <div>
+                        <p class="font-semibold text-blue-900 mb-1">How to use:</p>
+                        <p class="text-blue-800 text-sm">Copy the prompt above and paste it into any AI service. The prompt contains all your inputs and detailed instructions for optimal resume tailoring.</p>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Bottom Spacing -->
-        <div class="row">
-            <div class="col-12 mb-5"></div>
         </div>
     </div>
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         function copyToClipboard() {
             const textarea = document.getElementById('completePrompt');
@@ -135,50 +130,40 @@
             
             // Show feedback
             const btn = event.target.closest('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-check me-1"></i>Copied!';
-            btn.classList.remove('btn-outline-secondary');
-            btn.classList.add('btn-success');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check mr-2"></i>Copied!';
+            btn.classList.add('opacity-90');
             
             setTimeout(() => {
-                btn.innerHTML = originalText;
-                btn.classList.remove('btn-success');
-                btn.classList.add('btn-outline-secondary');
+                btn.innerHTML = originalHTML;
+                btn.classList.remove('opacity-90');
             }, 2000);
+            
+            // Show toast notification
+            showCopyNotification();
         }
 
         function openAIServices() {
-            const services = [
-                { name: 'ChatGPT', url: 'https://chat.openai.com/' },
-                { name: 'Claude', url: 'https://claude.ai/' },
-                { name: 'Gemini', url: 'https://gemini.google.com/' },
-                { name: 'Perplexity', url: 'https://perplexity.ai/' }
-            ];
-            
-            // Show a modal with service options (simple implementation)
             const choice = confirm("Copy the prompt first, then click OK to open ChatGPT (or Cancel to choose manually from the links below)");
             if (choice) {
                 window.open('https://chat.openai.com/', '_blank');
             }
         }
 
-        // Auto-copy functionality - copy prompt when page loads
+        // Auto-select prompt text when page loads
         document.addEventListener('DOMContentLoaded', function() {
-            // Optional: Auto-select the prompt text for easy copying
             const textarea = document.getElementById('completePrompt');
             if (textarea) {
-                // Focus and select all text
                 textarea.focus();
                 textarea.setSelectionRange(0, textarea.value.length);
             }
         });
 
-        // Add keyboard shortcut for copying (Ctrl+C)
+        // Keyboard shortcut notification
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'c') {
                 const textarea = document.getElementById('completePrompt');
                 if (document.activeElement === textarea) {
-                    // Let the default copy action work
                     setTimeout(() => {
                         showCopyNotification();
                     }, 100);
@@ -187,20 +172,9 @@
         });
 
         function showCopyNotification() {
-            // Create a temporary notification
             const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                right: 20px;
-                background-color: #28a745;
-                color: white;
-                padding: 10px 20px;
-                border-radius: 5px;
-                z-index: 1000;
-                font-weight: bold;
-            `;
-            notification.innerHTML = '<i class="fas fa-check me-2"></i>Prompt copied to clipboard!';
+            notification.className = 'fixed top-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-xl z-50 flex items-center space-x-2 animate-fade-in';
+            notification.innerHTML = '<i class="fas fa-check-circle text-xl"></i><span class="font-semibold">Prompt copied to clipboard!</span>';
             document.body.appendChild(notification);
             
             setTimeout(() => {
@@ -208,5 +182,7 @@
             }, 3000);
         }
     </script>
+</body>
+</html>
 </body>
 </html>
