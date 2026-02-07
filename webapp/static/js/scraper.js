@@ -25,7 +25,10 @@ function loadJobsFromStorage() {
     if (stored) {
         try {
             const data = JSON.parse(stored);
-            jobs = data.jobs || [];
+            jobs = (data.jobs || []).map(job => ({
+                applied: false,
+                ...job
+            }));
             jobIdCounter = data.counter || 1;
         } catch (e) {
             console.error('Error loading jobs:', e);
@@ -83,7 +86,8 @@ function addJobUrl() {
         title: null,
         description: null,
         dateAdded: new Date().toISOString(),
-        status: 'pending' // pending, scraping, scraped, error
+        status: 'pending', // pending, scraping, scraped, error
+        applied: false
     };
     
     console.log('Adding job:', job); // Debug
@@ -183,6 +187,15 @@ function createJobRow(job, index) {
         </td>
         <td class="px-4 py-3 text-center">
             ${job.prompt ? `<button class=\"p-2 text-indigo-600 hover:bg-indigo-50 rounded-lg transition-all\" onclick=\"copyPromptForJob(${job.id})\" title=\"Copy Prompt\"><i class=\"fas fa-copy\"></i></button>` : `<span class=\"text-xs text-gray-400\">-</span>`}
+        </td>
+        <td class="px-4 py-3 text-center">
+            <label class="inline-flex items-center cursor-pointer select-none">
+                <input type="checkbox" class="sr-only" ${job.applied ? 'checked' : ''} onchange="setAppliedStatus(${job.id}, this.checked)">
+                <div class="w-11 h-6 ${job.applied ? 'bg-green-500' : 'bg-gray-200'} rounded-full relative transition-colors">
+                    <div class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-transform ${job.applied ? 'translate-x-5' : ''}"></div>
+                </div>
+                <span class="ml-3 text-xs font-semibold ${job.applied ? 'text-green-700' : 'text-gray-500'}">${job.applied ? 'Applied' : 'Not applied'}</span>
+            </label>
         </td>
         <td class="px-4 py-3 text-center">
             <div class="flex items-center justify-center space-x-2">
@@ -591,4 +604,14 @@ function copyPromptForJob(jobId) {
 function openChatGPT() {
     window.open('https://chat.openai.com/', '_blank');
     showToast('Copy the prompt and paste it into ChatGPT', 'info');
+}
+
+// Update applied status
+function setAppliedStatus(jobId, isApplied) {
+    const job = jobs.find(j => j.id === jobId);
+    if (!job) return;
+
+    job.applied = isApplied;
+    saveJobsToStorage();
+    renderJobsTable();
 }
