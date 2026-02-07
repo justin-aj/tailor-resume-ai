@@ -213,8 +213,8 @@ Key Accomplishments:
 • Created a robust PDF/TXT parser (PyMuPDF, RegEx) to extract entities and structure 
   financial text for compliance tracking.
 
-• Benchmarked LLMs (Gemini, Claude, GPT-4) on 10-class financial classification, 
-  achieving 0.86+ F1-scores.
+• Benchmarked Closed Source and Open Source LLMs (Qwen, GLM, LLAMA, Kimi, gpt-oss
+Gemini, Claude, GPT-4, 5) on 5-class financial classification.
 
 • Automated feature extraction, integrating outputs into analytics pipelines for 
   trend analysis and reporting.
