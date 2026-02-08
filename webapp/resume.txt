@@ -324,6 +324,37 @@ Key Accomplishments:
 PROJECTS
 ================================================================================
 
+Distributed MapReduce Word Counter – ECS/S3 Pipeline
+Technologies: Go, Gin, AWS ECS Fargate, ECR, S3, Docker, Python, Matplotlib
+Duration: Feb 2026
+GitHub: https://github.com/justin-aj/go-hw/tree/master/HW-4/mapreduce
+
+• Built distributed MapReduce system with three Go microservices (Splitter, Mapper, Reducer)
+  deployed as independent ECS Fargate tasks, processing Shakespeare's Hamlet (29,604 words)
+  with verified 100% accuracy against single-machine baseline.
+
+• Achieved 2.89x map-phase speedup using 3 parallel Fargate workers with S3 as the
+  inter-service communication layer, demonstrating near-linear scaling efficiency for
+  embarrassingly parallel workloads.
+
+• Engineered fault-tolerant orchestration pipeline in Python with automatic retry logic
+  (3 attempts, exponential backoff), dynamic chunk splitting (configurable 1–100 mappers),
+  and round-robin task distribution across available compute nodes.
+
+• Containerized services using multi-stage Docker builds (golang:1.23-alpine → alpine runtime),
+  reducing image size by 95% and deploying via ECR with automated push pipelines.
+
+• Conducted performance benchmarking across 5 scaling configurations (1–10 chunks),
+  identifying I/O-bound bottlenecks in S3 round-trip latency and validating Amdahl's Law
+  with 1.51x overall pipeline speedup limited by sequential split/reduce phases.
+
+• Designed modular architecture with AWS SDK v2 for Go, enabling seamless credential
+  management via IAM task roles and eliminating hardcoded secrets in containerized
+  deployments.
+
+--------------------------------------------------------------------------------
+
+
 EssayBot – AI-Powered Essay Grading Platform
 Technologies: TypeScript, Node.js, Express.js, Python, Flask, RabbitMQ, Redis, MongoDB, 
 LlamaIndex, Qdrant, LangGraph, PyTorch, Docker, PM2, nginx
