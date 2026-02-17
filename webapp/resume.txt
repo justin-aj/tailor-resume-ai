@@ -427,7 +427,7 @@ GitHub: https://github.com/justin-aj/multimodal-answer-engine
 
 GoodReads Clone – Full-Stack Book Discovery Platform
 Technologies: Next.js, TypeScript, Node.js, Express.js, MongoDB, Mongoose, Google Books API, Vercel, CSS
-Duration: Sep 2024 – Dec 2024
+Duration: Sep 2025 – Dec 2025
 
 • Developed a full-stack web application inspired by GoodReads, enabling users to discover, track, 
   and review books. Built as a collaborative team project for CS5610.
@@ -458,7 +458,7 @@ Duration: Sep 2024 – Dec 2024
 
 Kambaz – Full-Stack Learning Management System (Canvas Clone)
 Technologies: Next.js, TypeScript, Node.js, Express.js, RESTful APIs, Vercel, CSS
-Duration: Sep 2024 – Dec 2024
+Duration: Sep 2025 – Dec 2025
 
 • Built a comprehensive Learning Management System replicating core Canvas LMS functionality, 
   providing a streamlined platform for students and instructors to manage courses, assignments, 
