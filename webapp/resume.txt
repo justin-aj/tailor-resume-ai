@@ -646,7 +646,7 @@ Duration: Jan 2025 – Apr 2025
 GitHub: https://github.com/justin-aj/AskNEU
 
 • Architected RAG system with Cohere reranking and Complex Retrieval Framework 
-  (query decomposition, context unification) using GPT-4.1 and Gemini APIs.
+  (query decomposition, context unification) using Claude Opus and Gemini APIs.
 
 • Scraped 50,000+ NEU web pages via Selenium, chunked data, embedded using LangChain, 
   and stored in Pinecone vector DB for semantic search.
