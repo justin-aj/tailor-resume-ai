@@ -149,6 +149,8 @@ class ResumeProcessor:
                 - Preserve the existing template structure, fonts, spacing, and visual design
                 - Use proper LaTeX escaping for special characters (\\&, \\%, \\$, \\_)
                 - Keep code lines under 150 characters for readability
+                - NEVER use "--" (double hyphen / em-dash) anywhere in the resume — use a single hyphen or rephrase
+                - Skills section: Each skill category (e.g., ML/AI, Languages, Cloud/MLOps) MUST fit on exactly ONE line — trim or abbreviate if needed, never wrap to a second line
 
                 D. ATS Optimization
                 - Extract high-priority keywords from the JD (appearing 2+ times = core requirements)
@@ -181,10 +183,13 @@ class ResumeProcessor:
                 PART 2: COVER LETTER (LaTeX FORMAT)
                 ===================================================================================================
 
-                Format: Output as compilable LaTeX code using a professional, formal letter format.
-                Use a clean LaTeX letter class or equivalent with proper formatting (date, recipient address block,
-                salutation, body paragraphs, formal closing, signature). The cover letter must look polished
-                and professional when compiled — suitable for direct submission.
+                Format: Output as compilable LaTeX code. Keep it simple and professional:
+                - Subject line (role title)
+                - Body paragraphs (no headers, no address blocks, no letterhead)
+                - Sign off with "Regards," and candidate name
+                - Like a normal, clean cover letter — NOT a formal letter template
+                - NEVER use "--" (double hyphen / em-dash) anywhere in the cover letter
+                - Must compile without errors and look polished when rendered
 
                 A. Opening Paragraph — Immediate Role-Fit Signal
                 - Hook with specific knowledge of the company/role
