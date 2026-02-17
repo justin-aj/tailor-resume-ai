@@ -79,170 +79,176 @@ class ResumeProcessor:
         prompt_template = """
                 Expert LaTeX Resume Optimizer, ATS Specialist & Cover Letter Strategist
 
-                You are a quadruple-threat career optimization expert combining:
-                1. LaTeX document mastery - ensuring flawless compilation and professional formatting
-                2. ATS algorithm expertise - maximizing parsing accuracy and keyword ranking
-                3. Recruiter psychology knowledge - understanding the 6-8 second scan pattern and decision triggers
-                4. Persuasion-focused career strategy - crafting compelling narratives that drive interview requests
+                You are a career optimization expert combining:
+                1. LaTeX document mastery — flawless compilation and professional formatting
+                2. ATS algorithm expertise — maximizing parsing accuracy and keyword ranking
+                3. Recruiter psychology — understanding the 6-8 second scan pattern and decision triggers
+                4. Persuasion-focused career strategy — crafting compelling narratives that drive interview requests
 
-                Your mission: Transform the provided resume into an undeniable interview-generating document that passes ATS filters, 
-                survives recruiter snap judgments, and compels hiring managers to call. Additionally, create a psychologically 
-                compelling cover letter that reinforces the resume without repetition and creates urgency to interview.
+                Your mission: Transform the provided resume into an interview-generating document that passes ATS filters,
+                survives recruiter snap judgments, and compels hiring managers to call. Additionally, create a professionally
+                formatted LaTeX cover letter that reinforces the resume without repetition.
 
-                ---------------------------------------------------------------------------------------------------
+                ===================================================================================================
                 INPUTS
-                ---------------------------------------------------------------------------------------------------
+                ===================================================================================================
 
-                JOB DESCRIPTION: 
+                JOB DESCRIPTION:
                 {job_description}
 
                 ---------------------------------------------------------------------------------------------------
 
-                OVERLEAF LATEX RESUME: 
+                OVERLEAF LATEX RESUME:
                 {latex_resume}
 
                 ---------------------------------------------------------------------------------------------------
 
-                ADDITIONAL CV/INFORMATION: 
+                ADDITIONAL CV/INFORMATION:
                 {additional_info}
 
-                ---------------------------------------------------------------------------------------------------
+                ===================================================================================================
+                STEP 0: SPONSORSHIP & ELIGIBILITY CHECK (MUST DO FIRST)
+                ===================================================================================================
 
-                PART 1: RESUME OPTIMIZATION INSTRUCTIONS
+                Before ANY optimization, scan the Job Description for sponsorship/eligibility restrictions.
 
-                1. LaTeX Excellence & Formatting Integrity
-                - Maintain perfect LaTeX syntax - all commands properly formatted, braces matched, environments nested correctly
+                STOP and respond with ONLY "No sponsorship" if the JD contains ANY of these signals:
+                - "No sponsorship", "cannot sponsor", "will not sponsor", "unable to sponsor"
+                - "Must be authorized to work without sponsorship"
+                - "Must not now or in the future require sponsorship"
+                - "US Citizenship required", "US Citizens only"
+                - "Permanent Resident required"
+                - "Active security clearance required" (Secret, Top Secret, TS/SCI, etc.)
+                - "Must be able to obtain a security clearance"
+                - "E-Verify" combined with "authorized to work" language
+                - Any equivalent language restricting work authorization or visa sponsorship
+
+                If NONE of these signals are present, proceed with the full optimization below.
+
+                ===================================================================================================
+                PART 1: RESUME OPTIMIZATION
+                ===================================================================================================
+
+                A. HEADER / CONTACT INFO — DO NOT MODIFY
+                - Preserve the existing header section (name, phone, email, LinkedIn, GitHub, portfolio links) exactly as-is
+                - Do not add, remove, or reorder any contact information
+
+                B. EXPERIENCE SELECTION (Using Additional CV/Information)
+                - The ADDITIONAL CV/INFORMATION section contains the candidate's full experience history
+                - The LaTeX resume has limited space (1 page) — you must make strategic choices
+                - Selection criteria (in priority order):
+                  1. Direct keyword/skill match with JD requirements
+                  2. Quantified achievements with measurable business impact
+                  3. Recency — prefer recent experience over older
+                  4. Transferable skills that bridge to the target role
+                - Only swap existing LaTeX content for Additional CV content when the replacement has HIGHER JD alignment
+                - Never add new sections — replace less relevant bullets within existing sections
+
+                C. LaTeX Formatting Rules
+                - Maintain perfect LaTeX syntax — braces matched, environments nested correctly
                 - Preserve the existing template structure, fonts, spacing, and visual design
-                - Use proper LaTeX escaping for special characters (\&, \%, \$, \_, \#)
-                - Ensure the output compiles without errors
-                - Keep code lines reasonably readable (120-150 characters) without sacrificing syntax correctness
+                - Use proper LaTeX escaping for special characters (\\&, \\%, \\$, \\_)
+                - Keep code lines under 150 characters for readability
 
-                2. ATS Algorithm Optimization
-                - Extract high-priority keywords from the JD (those appearing 2+ times are likely core requirements)
-                - Prioritize hard skills, technical tools, certifications, and role-specific terminology over soft skills
-                - Place keywords strategically in both Skills and Experience sections for dual-parsing
-                - Use standard section headers that ATS systems reliably parse (Experience, Education, Skills, Projects)
-                - Avoid formatting pitfalls: no tables, text boxes, graphics, or critical info in headers/footers
-                - Mirror exact phrasing from JD where natural (e.g., if JD says "CI/CD pipelines," use that exact phrase)
+                D. ATS Optimization
+                - Extract high-priority keywords from the JD (appearing 2+ times = core requirements)
+                - Prioritize hard skills, technical tools, certifications over soft skills
+                - Place keywords in both Skills and Experience sections for dual-parsing
+                - Use standard section headers (Experience, Education, Skills, Projects)
+                - Mirror exact JD phrasing where natural (e.g., if JD says "CI/CD pipelines," use that exact phrase)
 
-                3. Recruiter Scan Psychology (6-8 Second Test)
-                - Top-load impact: Place the most role-relevant achievements in the first 2 bullets of each position
-                - Visual hierarchy: Ensure the most important information is scannable at a glance
+                E. Recruiter Scan Psychology (6-8 Second Test)
+                - Top-load: Most role-relevant achievements in the first 2 bullets of each position
                 - Eliminate rejection triggers:
-                - Remove vague phrases ("responsible for," "worked on," "assisted with")
-                - Remove task-framing without outcomes ("managed databases" → "optimized database queries, reducing latency 40%")
-                - Remove lack of ownership signals ("helped the team" → "led initiative that...")
-                - Create pattern interrupts: Specific numbers and metrics catch the scanning eye
+                  - No vague phrases ("responsible for," "worked on," "assisted with")
+                  - No task-framing without outcomes ("managed databases" → "optimized database queries, reducing latency 40%")
+                  - No weak ownership signals ("helped the team" → "led initiative that...")
+                - Pattern interrupts: Specific numbers and metrics catch the scanning eye
 
-                4. Impact-Driven Content Rewriting
-                - Use the CAR framework (Challenge → Action → Result) for bullet points
+                F. Impact-Driven Content Rewriting
+                - Use the CAR framework (Challenge → Action → Result) for bullets
                 - Lead with strong action verbs: Led, Architected, Optimized, Delivered, Drove, Launched, Engineered, Automated, Scaled
-                - Include quantifiable outcomes wherever possible:
-                - Performance improvements (%, latency, throughput)
-                - Scale indicators (users, data volume, transactions)
-                - Efficiency gains (time saved, cost reduced)
-                - Business impact (revenue, adoption, reliability)
-                - Reorder experiences so the most role-aligned content appears first and most prominently
+                - Quantify wherever possible: performance %, latency, throughput, users, data volume, cost savings, revenue impact
+                - Reorder experiences so the most role-aligned content appears first
 
-                5. Strategic Keyword Integration
-                - Natural weaving: Keywords must flow organically within achievement statements
-                - Density balance: Aim for 60-70% keyword coverage without stuffing
-                - Skill section optimization: Group skills into categories that mirror JD structure
-                - For adjacent/learnable skills mentioned in JD: Include if you have related experience or can quickly demonstrate proficiency – integrate subtly to imply familiarity
+                G. Strategic Keyword Integration
+                - Keywords must flow organically within achievement statements — no stuffing
+                - Aim for 60-70% keyword coverage
+                - Group skills into categories that mirror JD structure
+                - For adjacent/learnable skills: include if you have related experience, integrate subtly
 
-                6. Narrative Alignment & Credibility Signals
-                - Create a clear story arc that bridges past experience to the target role
-                - Highlight transferable achievements that demonstrate capability for JD responsibilities
-                - Include credibility markers: company names, technologies, scale of impact
-                - Ensure every bullet answers "so what?" - why should the hiring manager care?
+                ===================================================================================================
+                PART 2: COVER LETTER (LaTeX FORMAT)
+                ===================================================================================================
 
-                ---------------------------------------------------------------------------------------------------
+                Format: Output as compilable LaTeX code using a professional, formal letter format.
+                Use a clean LaTeX letter class or equivalent with proper formatting (date, recipient address block,
+                salutation, body paragraphs, formal closing, signature). The cover letter must look polished
+                and professional when compiled — suitable for direct submission.
 
-                PART 2: COVER LETTER STRATEGY INSTRUCTIONS
+                A. Opening Paragraph — Immediate Role-Fit Signal
+                - Hook with specific knowledge of the company/role
+                - Establish credibility in the first two sentences
+                - No generic openings ("I am writing to apply for...")
+                - Start with impact, not intention
 
-                1. Immediate Role-Fit Signal (Opening Paragraph)
-                - Open with a hook that demonstrates specific knowledge of the company/role
-                - Establish credibility within the first two sentences - mention a relevant achievement or qualification
-                - Avoid generic openings ("I am writing to apply for...")
-                - Create pattern interrupt: Start with impact, not intention
-
-                2. Narrative Bridge (Body Paragraphs)
+                B. Body Paragraphs — Narrative Bridge
                 - Connect past experience to specific JD requirements without repeating resume bullets verbatim
-                - Use the "You need X, I deliver X" framework - align your experience to their pain points
-                - Include 1-2 specific achievements with metrics that aren't prominently featured in the resume
-                - Demonstrate understanding of their challenges and how you solve them
-                - Show enthusiasm for the specific company/mission - not just the role
+                - "You need X, I deliver X" framework — align to their pain points
+                - Include 1-2 achievements with metrics NOT prominently in the resume
+                - Show understanding of their challenges and enthusiasm for their mission
 
-                3. Psychological Hooks That Increase Interview Probability
-                - Social proof: Reference recognizable companies, technologies, or scale of impact
-                - Specificity: Concrete numbers and outcomes signal competence
-                - Future value framing: Show what you will accomplish, not just what you have done
-                - Curiosity gap: Hint at deeper expertise worth exploring in an interview
-                - Loss aversion: Subtly imply what they'd miss by not interviewing you
-
-                4. Confident Close (Final Paragraph)
-                - End with a forward-moving call-to-action - assume the interview, don't beg for it
-                - Express genuine enthusiasm without desperation
+                C. Closing Paragraph — Confident Close
+                - Forward-moving call-to-action — assume the interview, don't beg for it
+                - Genuine enthusiasm without desperation
                 - Offer specific availability or next steps
-                - Leave them with a memorable final impression
+                - Memorable final impression
 
-                5. Cover Letter Rules
-                - Length: Strictly under one page (250-350 words ideal)
-                - Tone: Professional but compelling - confident, not arrogant
-                - No generic fluff: Every sentence must earn its place
-                - No clichés: Avoid "passionate," "team player," "hard worker," "excited to apply"
-                - ATS-safe formatting: Simple structure, no tables or graphics
-                - Tight JD alignment: Reference specific requirements and keywords naturally
+                D. Cover Letter Rules
+                - Length: 250-350 words (under 1 page when compiled)
+                - Tone: Professional, confident, not arrogant
+                - No clichés: avoid "passionate," "team player," "hard worker," "excited to apply"
+                - Every sentence must earn its place
+                - Reference specific JD requirements and keywords naturally
 
-                ---------------------------------------------------------------------------------------------------
+                ===================================================================================================
+                CONSTRAINTS (SINGLE SOURCE OF TRUTH)
+                ===================================================================================================
 
-                CRITICAL CONSTRAINTS
+                1. Resume: MUST remain 1 page — no exceptions
+                2. Space optimization: If removing content to fit more JD-relevant details, the Bachelor's degree (REVA University) MAY be removed — the Master's degree (Northeastern University) must always remain
+                3. Cover Letter: MUST be under 1 page (250-350 words)
+                4. Both outputs MUST compile without LaTeX errors
+                5. Truthfulness: Enhance presentation, never fabricate experience
+                6. No section expansion: Replace less relevant content, don't add new sections
+                7. ATS safety: Standard headers, consistent formatting, no parsing-breaking elements
+                8. Human readability: Must read smoothly — no keyword stuffing
+                9. No repetition: Cover letter complements the resume, not duplicates it
+                10. Header/contact info: Do NOT modify the resume header section
+                11. Output order: Resume FIRST, then cover letter
 
-                Resume Page Length: MUST remain 1 page - no exceptions
-                Cover Letter Length: MUST be under 1 page (250-350 words)
-                LaTeX Compilation: Resume must compile without errors
-                Truthfulness: Enhance presentation, but do not fabricate experience
-                No Line Expansion: Replace less relevant content rather than adding new sections
-                ATS Safety: Standard headers, consistent formatting, no parsing-breaking elements
-                Human Readability: Must read smoothly for recruiters – no keyword stuffing
-                No Repetition: Cover letter must complement resume, not duplicate it
-
-                ---------------------------------------------------------------------------------------------------
-
+                ===================================================================================================
                 DELIVERABLES
+                ===================================================================================================
 
-                Provide two complete outputs:
+                Provide exactly two outputs, in this order, wrapped in the delimiters shown:
 
-                ---------------------------------------------------------------------------------------------------
+                ===RESUME START===
+                [Complete optimized LaTeX resume code — compiles without errors, 1 page,
+                high ATS keyword alignment, passes 6-8 second recruiter scan,
+                quantified achievements, strategic keyword placement,
+                professional formatting, compelling narrative bridge to target role]
+                ===RESUME END===
 
-                OUTPUT 1: Optimized LaTeX Resume
+                ===COVER LETTER START===
+                [Complete LaTeX cover letter code — compiles without errors,
+                professional formal letter format, immediately signals role fit,
+                narrative bridge to JD requirements, psychological hooks,
+                confident close, 250-350 words, no clichés,
+                tight JD alignment]
+                ===COVER LETTER END===
 
-                Provide the complete revised LaTeX code that:
-                - Compiles perfectly without any LaTeX errors
-                - Achieves high ATS keyword alignment with the target JD
-                - Passes the 6-8 second recruiter scan test with role-fit clarity
-                - Highlights quantified achievements relevant to the position
-                - Uses strategic keyword placement for both ATS and human readers
-                - Maintains professional formatting and visual appeal
-                - Stays strictly within 1 page
-                - Creates a compelling narrative bridge between current experience and target role
-
-                ---------------------------------------------------------------------------------------------------
-
-                OUTPUT 2: Strategic Cover Letter
-
-                Provide the complete cover letter (ready to submit) that:
-                - Immediately signals role fit and credibility in the opening
-                - Creates a narrative bridge between candidate experience and role requirements
-                - Uses psychological hooks that increase interview probability
-                - Reinforces resume claims without repetition
-                - Ends with a confident, forward-moving call-to-action
-                - Is under one page (250-350 words)
-                - Uses professional but compelling tone - no generic fluff or clichés
-                - Is ATS-safe in formatting
-                - Aligns tightly to the job description
-
-                ---------------------------------------------------------------------------------------------------
+                ===================================================================================================
             """
         
         # Fill in the template

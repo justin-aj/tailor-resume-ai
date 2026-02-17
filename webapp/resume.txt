@@ -666,7 +666,7 @@ GitHub: https://github.com/justin-aj/AIBankingAssistant
 • Fine-tuned T5-small, GPT2-small, DistilBERT via QLoRA (4-bit quantization) and 
   benchmarked Falcon-7B.
 
-• Achieved BLEU 0.25, ROUGE-1 F1 0.54 on NVIDIA V100 GPU, indicating strong text 
+• Achieved BLEU 0.25, ROUGE-1 F1 0.54 on NVIDIA H100 GPU, indicating strong text 
   generation performance.
 
 --------------------------------------------------------------------------------
