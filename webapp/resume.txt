@@ -63,7 +63,7 @@ ML/AI & Analytics:
 - LangChain, LangGraph, LlamaIndex, Diffusion Models
 - Hugging Face, NLP, PEFT, QLoRA
 - Sentence-Transformers, Ollama, Cohere, Gemini AI
-- T5, GPT2, DistilBERT, Falcon, GPT-4
+- T5, GPT2, DistilBERT, Falcon
 - ARIMA, Prophet, CUDA
 - TF-IDF, PCA
 
