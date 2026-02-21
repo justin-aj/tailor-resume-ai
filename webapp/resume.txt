@@ -354,6 +354,39 @@ GitHub: https://github.com/justin-aj/go-hw/tree/master/HW-4/mapreduce
 
 --------------------------------------------------------------------------------
 
+Product Search Load Testing & Auto Scaling – ECS/ALB Pipeline
+Technologies: Go, AWS ECS Fargate, ECR, ALB, Auto Scaling, CloudWatch, Docker, Locust, Terraform, DummyJSON API
+Duration: Feb 2026
+GitHub: https://github.com/justin-aj/go-hw/tree/master/HW-6/
+
+• Built modular Go product search service following Parnas (1972) information hiding principles across
+  6 packages (model, store, seeddata, generator, search, handler), fetching 194 real products from
+  DummyJSON API at startup and expanding to 100,000 variants stored in sync.Map for thread-safe
+  concurrent access.
+
+• Identified CPU as the performance bottleneck through progressive load testing (5→500 users),
+  demonstrating linear CPU scaling from 5% to 91% while memory remained flat at ~14%, with tail
+  latency exploding from 530ms to 84s and 160 failures at the breaking point (1,700 RPS on 0.25 vCPU).
+
+• Solved the bottleneck with horizontal scaling using ALB + ECS Auto Scaling (70% CPU target,
+  min 2/max 4 tasks), reducing failures by 92% (160→12) and CPU utilization by 32% (91%→62%)
+  under identical 500-user load while increasing throughput to 1,919 RPS.
+
+• Validated fault tolerance by killing a running task mid-load test (500 concurrent users), observing
+  automatic recovery with only 11 failures out of 245,000+ requests (0.004% error rate) as ECS
+  replaced the dead task and ALB rerouted traffic within seconds.
+
+• Provisioned entire infrastructure (VPC, ALB, ECS, ECR, Auto Scaling, CloudWatch) via modular
+  Terraform with environment-specific tfvars (part2/part3), enabling single-command transitions
+  between single-instance and auto-scaled deployments using kreuzwerker/docker provider for
+  automated image builds.
+
+• Leveraged CloudWatch Container Insights to correlate application-level metrics (RPS, p99 latency,
+  failure rate) with infrastructure metrics (CPU/memory utilization, network I/O), building
+  evidence-based scaling decisions distinguishing optimization problems from capacity problems.
+
+--------------------------------------------------------------------------------
+
 
 EssayBot – AI-Powered Essay Grading Platform
 Technologies: TypeScript, Node.js, Express.js, Python, Flask, RabbitMQ, Redis, MongoDB, 
